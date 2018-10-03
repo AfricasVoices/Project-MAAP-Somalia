@@ -21,7 +21,8 @@ cd "$RP_DIR/fetch_runs"
 mkdir -p "$DATA_ROOT/01 Raw Messages"
 
 SHOWS=(
-    "emergency_maap_case_response"
+    "emergency_maap_demogs"
+    "emergency_maap_pdm1_survey"
     )
 
 for SHOW in ${SHOWS[@]}
