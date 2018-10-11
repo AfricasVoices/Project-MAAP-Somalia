@@ -17,7 +17,7 @@ TEST_CONTACTS_PATH=$6
 
 cd "$RP_DIR/fetch_contacts"
 
-mkdir -p "$DATA_ROOT/03 Raw Contacts"
+mkdir -p "$DATA_ROOT/02 Raw Contacts"
 
 echo "Exporting contacts"
 

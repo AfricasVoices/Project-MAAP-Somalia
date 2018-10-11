@@ -1,8 +1,33 @@
 import argparse
 import csv
 import time
+import re
 from core_data_modules.traced_data import TracedData, Metadata
 from core_data_modules.traced_data.io import TracedDataJsonIO
+
+
+def key_normalisation(td_pdm, string_to_replace, replacement_string):
+    """
+    Used to normlise the keys from different PDMs. Acts to the TracedData
+    Object itself(td_pdm)
+
+    :param td_pdm: Data to normalise the keys of
+    :type td_pdm:TracedData object
+    :param string_to_replace: String to search for and replace
+    :type string_to_replace: str
+    :param replacement_string: String create new key from 
+    :type replacement_string: str
+    """
+    md =  Metadata(user, Metadata.get_call_location(), time.time())
+    for record in td_pdm:
+        print(len(record))
+        data_to_append = {}
+        for key in record.keys():
+            if string_to_replace in key:
+                new_key = re.sub(string_to_replace, replacement_string, key)
+                data_to_append[new_key] = record[key]
+        record.append_data(data_to_append, md)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Loads the PDM surveys and concatenates them")
@@ -25,27 +50,35 @@ if __name__ == "__main__":
 
     #load the 5 PDMs that were saved as JSON
     with open(pdm1_input_path, 'r') as f:
-        trace_pdm1_input_path = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
+        traced_pdm1 = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
     with open(pdm2_input_path, 'r') as f:
-        trace_pdm2 = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
+        traced_pdm2 = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
     with open(pdm3_input_path, 'r') as f:
-        trace_pdm3 = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
+        traced_pdm3 = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
     with open(pdm4_input_path, 'r') as f:
-        trace_pdm4 = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
+        traced_pdm4 = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
     with open(pdm5_input_path, 'r') as f:
-        trace_pdm5 = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
+        traced_pdm5 = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
     
+    #normalise the keys
+    key_normalisation(traced_pdm1, 'emergency_maap_pdm1_survey', 'emergency_maap_pdm')
+    key_normalisation(traced_pdm2, 'emergency_maap_pdm2_survey', 'emergency_maap_pdm')
+    key_normalisation(traced_pdm3, 'emergency_maap_pdm3_survey', 'emergency_maap_pdm')
+    key_normalisation(traced_pdm4, 'emergency_maap_pdm4_survey', 'emergency_maap_pdm')
+    key_normalisation(traced_pdm5, 'emergency_maap_pdm5_survey', 'emergency_maap_pdm')
+
+
     #concatenate the PDMs
     trace_combined = []
-    for trace_data in trace_pdm1_input_path:
+    for trace_data in traced_pdm1:
         trace_combined.append(trace_data)
-    for trace_data in trace_pdm2:
+    for trace_data in traced_pdm2:
         trace_combined.append(trace_data)
-    for trace_data in trace_pdm3:
+    for trace_data in traced_pdm3:
         trace_combined.append(trace_data)
-    for trace_data in trace_pdm4:
+    for trace_data in traced_pdm4:
         trace_combined.append(trace_data)
-    for trace_data in trace_pdm5:
+    for trace_data in traced_pdm5:
         trace_combined.append(trace_data)
     
     with open(traced_json_output_path, "w") as f:
