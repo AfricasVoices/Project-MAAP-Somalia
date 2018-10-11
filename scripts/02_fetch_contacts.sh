@@ -3,7 +3,7 @@
 set -e
 
 if [ $# -ne 6 ]; then
-    echo "Usage: sh 04_fetch_contacts.sh <user> <rapid-pro-root> <rapid-pro-server> <rapid-pro-token> <data-root> <test-contacts-path>"
+    echo "Usage: sh 02_fetch_contacts.sh <user> <rapid-pro-root> <rapid-pro-server> <rapid-pro-token> <data-root> <test-contacts-path>"
     echo "Downloads all contacts from Rapid Pro"
     exit
 fi
