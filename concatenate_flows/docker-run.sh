@@ -6,18 +6,18 @@ IMAGE_NAME=maap-concatenate_pdms
 
 # Check that the correct number of arguments were provided.
 if [ $# -ne 76 ]; then
-    echo "Usage: sh docker-run.sh <pdm1> <pdm2> <pdm3> <pdm4> <pdm5> <combined_json> <user>"
+    echo "Usage: sh docker-run.sh <user> <pdm1> <pdm2> <pdm3> <pdm4> <pdm5> <combined_json>"
     exit
 fi
 
 # Assign the program arguments to bash variables.
-PDM1 = $1
-PDM2 = $2
-PDM3 = $3
-PDM4 = $4
-PDM5 = $5
-COMBINED_JSON = $6
-USER = $7
+USER = $1
+PDM1 = $2
+PDM2 = $3
+PDM3 = $4
+PDM4 = $5
+PDM5 = $6
+COMBINED_JSON = $7
 
 # Build an image for this pipeline stage.
 docker build -t "$IMAGE_NAME" .

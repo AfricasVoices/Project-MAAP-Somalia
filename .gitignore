@@ -6,15 +6,6 @@ __pycache__/
 # C extensions
 *.so
 
-<<<<<<< HEAD
-
-#datafiles
-data/
-
-#vs code stuff
-*.code-workspace
-
-=======
 #data stuff
 data
 
@@ -24,7 +15,6 @@ data
 #experimental thing
 test*
 
->>>>>>> concatenate_pdm_flows
 # Distribution / packaging
 .Python
 build/

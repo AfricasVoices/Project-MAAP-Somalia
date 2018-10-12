@@ -6,7 +6,7 @@ IMAGE_NAME=maap-get_coda_files
 
 # Check that the correct number of arguments were provided.
 if [[ $# -lt 5 || $# -gt 6 ]]; then
-    echo "Usage: sh docker-run.sh <user> <json-input-path> <flow-name> <variable-name> <coda-output-path> --prev-coda-input-path"
+    echo "Usage: sh docker-run.sh <user> <json-input-path> <flow-name> <variable-name> <coda-output-path> <--prev-coda-input-path>"
     exit
 fi
 
