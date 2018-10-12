@@ -13,7 +13,7 @@ data
 *.code-workspace
 
 #experimental thing
-test*
+test*.py
 
 # Distribution / packaging
 .Python
