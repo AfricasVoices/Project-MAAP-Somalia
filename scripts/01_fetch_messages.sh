@@ -18,7 +18,7 @@ TEST_CONTACTS_PATH=$6
 cd "$RP_DIR/fetch_runs"
 
 mkdir -p "$DATA_ROOT/01 Raw Messages"
-
+# TODO: retrieving the demogs in 'lastest_only' mode rather than 'all'
 SHOWS=(
     "emergency_maap_pdm1_survey"
     "emergency_maap_pdm2_survey"
