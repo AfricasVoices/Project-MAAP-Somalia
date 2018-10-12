@@ -12,7 +12,7 @@ data
 # vs code stuff
 *.code-workspace
 
-#experimental things
+#experimental thing
 test*.py
 
 # Distribution / packaging
