@@ -8,8 +8,8 @@ from core_data_modules.traced_data.io import TracedDataJsonIO
 
 def normalise_pdm_flow_keys(pdm_traced_data, key_to_normalise, normalised_key):
     """
-    Normalises the keys from different PDMs. Acts on the TracedData
-    Object itself(pdm_traced_data)
+    Normalises the keys from different PDMs(Post Distribuiton Monitoring survey)
+    Acts on the TracedData Object itself(pdm_traced_data)
 
     :param pdm_traced_data: Data to normalise the keys of
     :type pdm_traced_data: iterable of TracedData
