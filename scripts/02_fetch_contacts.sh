@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#contacts are fetch because we need the maapscopeid from them
+# contacts are fetch because we need the maapscopeid from them
 set -e
 
 if [ $# -ne 6 ]; then
