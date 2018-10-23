@@ -34,7 +34,7 @@ if __name__ == "__main__":
         prev_coda_path = args.prev_coda_path
     else:
         prev_coda_path = None
-    
+
     # Load data from JSON file
     with open(json_input_path, "r") as f:
         show_messages = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
@@ -62,9 +62,8 @@ if __name__ == "__main__":
     # Output messages to Coda
     IOUtils.ensure_dirs_exist_for_file(coda_output_path)
     if prev_coda_path:
-        # TODO: Modifying this line once the coding frame has been developed to include lots of Nones feels a bit
-        # TODO: cumbersome. We could instead modify export_traced_data_iterable_to_coda to support a prev_f argument.
-        scheme_keys = {"Relevance": None, "Code 1": None, "Code 2": None, "Code 3": None, "Code 4": None}
+        # TODO: Needs to be updated once there's a previous scheme
+        scheme_keys = {}
         with open(coda_output_path, "w") as f, open(prev_coda_path, "r") as prev_f:
             TracedDataCodaIO.export_traced_data_iterable_to_coda_with_scheme(
                 show_messages, show_message_key, scheme_keys, f, prev_f=prev_f)
