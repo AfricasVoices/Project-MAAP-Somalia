@@ -2,7 +2,7 @@
 
 set -e
 
-IMAGE_NAME=maap-get_coda_files
+IMAGE_NAME=maap-get-coda-files
 
 # Check that the correct number of arguments were provided.
 if [[ $# -lt 5 || $# -gt 6 ]]; then
@@ -16,6 +16,7 @@ INPUT_JSON=$2
 FLOW_NAME=$3
 VARIABLE_NAME=$4
 OUTPUT_CODA=$5
+PREV_CODA=$6
 
 # Build an image for this pipeline stage.
 docker build -t "$IMAGE_NAME" .
