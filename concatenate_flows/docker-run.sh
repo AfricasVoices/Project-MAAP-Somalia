@@ -5,7 +5,7 @@ set -e
 IMAGE_NAME=maap-concatenate_pdms
 
 # Check that the correct number of arguments were provided.
-if [ $# -ne 76 ]; then
+if [ $# -ne 7 ]; then
     echo "Usage: sh docker-run.sh <user> <pdm1> <pdm2> <pdm3> <pdm4> <pdm5> <combined_json>"
     exit
 fi
