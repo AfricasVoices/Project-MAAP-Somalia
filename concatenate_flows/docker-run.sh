@@ -11,13 +11,13 @@ if [ $# -ne 7 ]; then
 fi
 
 # Assign the program arguments to bash variables.
-USER = $1
-INPUT_PDM1 = $2
-INPUT_PDM2 = $3
-INPUT_PDM3 = $4
-INPUT_PDM4 = $5
-INPUT_PDM5 = $6
-OUTPUT_COMBINED_JSON = $7
+USER=$1
+INPUT_PDM1=$2
+INPUT_PDM2=$3
+INPUT_PDM3=$4
+INPUT_PDM4=$5
+INPUT_PDM5=$6
+OUTPUT_COMBINED_JSON=$7
 
 # Build an image for this pipeline stage.
 docker build -t "$IMAGE_NAME" .
