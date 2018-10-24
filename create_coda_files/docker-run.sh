@@ -5,8 +5,8 @@ set -e
 IMAGE_NAME=maap-get-coda-files
 
 # Check that the correct number of arguments were provided.
-if [[ $# -lt 5 || $# -gt 6 ]]; then
-    echo "Usage: sh docker-run.sh <user> <json-input-path> <flow-name> <variable-name> <coda-output-path> <--prev-coda-input-path>"
+if [[ $# -ne 6 ]]; then
+    echo "Usage: sh docker-run.sh <user> <json-input-path> <flow-name> <variable-name> <coda-output-path> <prev-coda-input-path>"
     exit
 fi
 
@@ -32,7 +32,9 @@ trap finish EXIT
 
 # Copy input data into the container
 docker cp "$INPUT_JSON" "$container:/data/input.json"
-
+if [ -d "$PREV_CODA" ]; then
+    docker cp "$PREV_CODA" "$container:/data/prev_coda.csv"
+fi
 # Run the container
 docker start -a -i "$container"
 

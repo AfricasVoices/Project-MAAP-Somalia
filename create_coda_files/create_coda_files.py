@@ -21,7 +21,7 @@ if __name__ == "__main__":
                         help="Name of message variable in flow")
     parser.add_argument("coda_output_path", metavar="coda-output-path",
                         help="Path to a Coda file to write processed messages to")
-    parser.add_argument("--prev_coda_path", metavar="prev-coda-path",
+    parser.add_argument("prev_coda_path", metavar="prev-coda-path",
                         help="Path to a Coda file containing previously coded messages")
 
     args = parser.parse_args()
@@ -30,8 +30,9 @@ if __name__ == "__main__":
     flow_name = args.flow_name
     variable_name = args.variable_name
     coda_output_path = args.coda_output_path
-    if args.prev_coda_path:
-        prev_coda_path = args.prev_coda_path
+    prev_coda_path = args.prev_coda_path
+    if os.path.exists(prev_coda_path):
+        pass
     else:
         prev_coda_path = None
 
