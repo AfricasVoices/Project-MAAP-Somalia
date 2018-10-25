@@ -3,12 +3,8 @@ import os
 import time
 import random
 
-import pytz
-from core_data_modules.cleaners import somali
-from core_data_modules.traced_data import Metadata
 from core_data_modules.traced_data.io import TracedDataJsonIO, TracedDataCodaIO
 from core_data_modules.util import IOUtils
-from dateutil.parser import isoparse
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Takes a TracedData json file and converts it to a CODA file")
@@ -30,11 +26,10 @@ if __name__ == "__main__":
     flow_name = args.flow_name
     variable_name = args.variable_name
     coda_output_path = args.coda_output_path
-    prev_coda_path = args.prev_coda_path
-    if os.path.exists(prev_coda_path):
-        pass
-    else:
+    if not os.path.exists(prev_coda_path):
         prev_coda_path = None
+    else:
+        prev_coda_path = args.prev_coda_path
 
     # Load data from JSON file
     with open(json_input_path, "r") as f:
@@ -46,19 +41,6 @@ if __name__ == "__main__":
     # Filter for runs which contain this key.
     show_message_key = "{} (Text) - {}".format(variable_name, flow_name)
     show_messages = [td for td in show_messages if show_message_key in td]
-
-    # Convert date/time of messages to EAT
-    utc_key = "{} (Time) - {}".format(variable_name, flow_name)
-    eat_key = "{} (Time EAT) - {}".format(variable_name, flow_name)
-
-    for td in show_messages:
-        utc_time = isoparse(td[utc_key])
-        eat_time = utc_time.astimezone(pytz.timezone("Africa/Nairobi")).isoformat()
-
-        td.append_data(
-            {eat_key: eat_time},
-            Metadata(user, Metadata.get_call_location(), time.time())
-        )
 
     # Output messages to Coda
     IOUtils.ensure_dirs_exist_for_file(coda_output_path)
