@@ -24,7 +24,7 @@ def normalise_pdm_flow_keys(pdm_traced_data, key_to_normalise, normalised_key):
             if key_to_normalise in key:
                 new_key = re.sub(key_to_normalise, normalised_key, key)
                 data_to_append[new_key] = record[key]
-        md =  Metadata(user, Metadata.get_call_location(), time.time())
+        md = Metadata(user, Metadata.get_call_location(), time.time())
         record.append_data(data_to_append, md)
 
 
