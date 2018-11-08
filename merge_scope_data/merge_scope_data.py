@@ -30,7 +30,7 @@ if __name__ == "__main__":
                         help="Path to TraceData JSON")
     parser.add_argument("contact_json_path", metavar="contact-json-input-path",
                         help="Path to contact TraceData JSON")
-    parser.add_argument("scope_csv_path", metavar="csv-input-path",
+    parser.add_argument("scope_csv_path", metavar="scope-csv-path",
                         help="Path to SCOPE CSV")
     parser.add_argument("traced_json_output_path", metavar="json-output-path",
                         help="Path to concatenated TraceData JSON")
