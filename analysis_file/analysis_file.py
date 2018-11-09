@@ -17,14 +17,9 @@ if __name__ == '__main__':
     parser.add_argument(
         'user', help='User launching this program')
     parser.add_argument(
-        'messages_input_dir', metavar='messages-input-dir',
-        help='Path to a directory containing JSON files of responses to each '
-        'of the shows in this project. Each JSON file should contain a list '
-        'of serialized TracedData objects')
-    parser.add_argument(
-        'survey_input_path', metavar='survey-input-path',
-        help='Path to a coded survey JSON file, containing a list of '
-        'serialized TracedData objects')
+        'json_input_path', metavar='json-input-path',
+        help='Path to a coded JSON file, containing a list of serialized '
+        'TracedData objects')
     parser.add_argument(
         'json_output_path', metavar='json-output-path',
         help='Path to a JSON file to write serialized TracedData items to '
@@ -41,7 +36,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     user = args.user
-    data_input_path = args.survey_input_path
+    data_input_path = args.json_input_path
     json_output_path = args.json_output_path
     csv_by_message_output_path = args.csv_by_message_output_path
     csv_by_individual_output_path = args.csv_by_individual_output_path
@@ -90,10 +85,10 @@ if __name__ == '__main__':
 
     # Load cleaned and coded message/survey data
     with open(data_input_path, 'r') as f:
-        data = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
+        trace_data = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
 
     # Translate keys to final values for analysis
-    AnalysisKeys.set_analysis_keys(user, data, key_map)
+    AnalysisKeys.set_analysis_keys(user, trace_data, key_map)
 
     equal_keys = ['UID']
     equal_keys.extend(demog_keys)
@@ -116,19 +111,30 @@ if __name__ == '__main__':
     export_keys.extend(survey_keys)
     export_keys.extend(scope_keys)
 
+    # TODO Remove this in the main pipeline.
+    for key in export_keys:
+        for td in trace_data:
+            if key not in td.keys():
+                td.append_data(
+                    {key: Codes.TRUE_MISSING},
+                    Metadata(user, Metadata.get_call_location(), time.time())
+                )
 
     # Fold data to have one respondent per row
     to_be_folded = []
-    for td in data:
+    for td in trace_data:
         to_be_folded.append(td.copy())
 
     folded_data = FoldTracedData.fold_iterable_of_traced_data(
-        user, data, fold_id_fn=lambda td: td['UID'],
+        user, trace_data, fold_id_fn=lambda td: td['UID'],
         equal_keys=equal_keys, concat_keys=concat_keys, yes_no_keys=yes_no_keys)
 
     # Output to CSV with one message per row
     with open(csv_by_message_output_path, 'w') as f:
-        TracedDataCSVIO.export_traced_data_iterable_to_csv(data, f, headers=export_keys)
+        TracedDataCSVIO.export_traced_data_iterable_to_csv(trace_data, f, headers=export_keys)
+
+    with open(csv_by_individual_output_path, "w") as f:
+        TracedDataCSVIO.export_traced_data_iterable_to_csv(folded_data, f, headers=export_keys)
 
     # Export JSON
     with open(json_output_path, 'w') as f:
