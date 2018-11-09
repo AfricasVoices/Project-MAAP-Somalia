@@ -2,7 +2,7 @@
 
 set -e
 
-IMAGE_NAME=maap-get-icr-files
+IMAGE_NAME=maap-create-icr-files
 
 # Check that the correct number of arguments were provided.
 if [[ $# -ne 5 ]]; then

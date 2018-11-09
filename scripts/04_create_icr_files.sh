@@ -4,8 +4,8 @@ set -e
 
 # Check that the correct number of arguments were provided.
 if [ $# -ne 3 ]; then
-    echo "Usage: sh 03_concatenate_flows.sh <user> <data-root> <variable-name>"
-    echo "Concatenates the flows together"
+    echo "Usage: sh 04_create_icr_files.sh <user> <data-root> <variable-name>"
+    echo "Creates a file for intercoder reliability"
     exit
 fi
 
