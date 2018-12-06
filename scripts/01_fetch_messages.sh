@@ -20,12 +20,8 @@ cd "$RP_DIR/fetch_runs"
 mkdir -p "$DATA_ROOT/01 Raw Messages"
 # TODO: retrieving the demogs in 'lastest_only' mode rather than 'all'
 SHOWS=(
-    "emergency_maap_pdm1_survey"
-    "emergency_maap_pdm2_survey"
-    "emergency_maap_pdm3_survey"
-    "emergency_maap_pdm4_survey"
-    "emergency_maap_pdm5_survey"
-    "emergency_maap_demogs"
+    "emergency_maap_new_pdm"
+    "emergency_maap_new_demogs"
     )
 
 for SHOW in ${SHOWS[@]}
@@ -33,6 +29,6 @@ do
     echo "Exporting show $SHOW"
 
     ./docker-run.sh --flow-name "$SHOW" --test-contacts-path "$TEST_CONTACTS_PATH" \
-        "$RP_SERVER" "$RP_TOKEN" "$USER" all \
+        "$RP_SERVER" "$RP_TOKEN" "$USER" latest-only \
         "$DATA_ROOT/00 UUIDs/phone_uuids.json" "$DATA_ROOT/01 Raw Messages/$SHOW.json"
 done
