@@ -13,7 +13,7 @@ USER=$1
 DATA_ROOT=$2
 VARIABLE_NAME=$3
 
-FLOW_NAME="emergency_maap_pdm"
+FLOW_NAME="emergency_maap_new_pdm"
 
 cd "../create_icr_file"
 
