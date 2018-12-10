@@ -97,6 +97,7 @@ if __name__ == '__main__':
                 missing_dict, 
                 Metadata(user, Metadata.get_call_location(), time.time())
                 )
+        
     # Auto-code remaining data
     if auto_cleaner is not None:
         CleaningUtils.apply_cleaner_to_traced_data_iterable(
@@ -105,7 +106,7 @@ if __name__ == '__main__':
     # Appends a message id to each object in the provided iterable of TracedData.
     TracedDataCoda2IO.add_message_ids(user, list_td, message_key, id_field)
 
-    # filter out empty messages for CODA, label them TRUE MISSING and output
+       # filter out empty messages for CODA, label them TRUE MISSING and output
     # list of ids this was true for.
     coda_td = []
     for td in list_td:
