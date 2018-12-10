@@ -107,7 +107,6 @@ if __name__ == '__main__':
 
     # Output the CODA file for coded
     IOUtils.ensure_dirs_exist_for_file(coda_output_path)
-    coda_output_path = path.join(coda_output_path, f"{variable_name}_coda.json")
     with open(coda_output_path, "w") as f:
         TracedDataCoda2IO.export_traced_data_iterable_to_coda_2(
             list_td, message_key, time_key, id_field, {coded_key: code_scheme}, f
@@ -116,7 +115,6 @@ if __name__ == '__main__':
 
     # Write list of trace data to json output
     IOUtils.ensure_dirs_exist_for_file(traced_json_output_path)
-    traced_json_output_path = path.join(traced_json_output_path, f"{flow_name}.json")
     with open(traced_json_output_path, 'w') as f:
         TracedDataJsonIO.export_traced_data_iterable_to_json(list_td, f,
                                                              pretty_print=True)
