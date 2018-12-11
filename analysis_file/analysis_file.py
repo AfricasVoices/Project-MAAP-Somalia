@@ -54,19 +54,17 @@ if __name__ == '__main__':
         'clan_identity_raw']
 
     survey_keys = [
-        'selection_satisfaction_reason',
-        'selection_satisfaction_yesno',
-        'selection_satisfaction_reason_raw',
+        'needs_met',
+        'needs_met_yesno',
+        'needs_met_raw',
         'cash_modality_yesno',
         'cash_modality_reason',
-        'cash_modality_reason_raw',
-        'main_needs',
-        'needs_met_yesno',
-        'main_needs_raw',
-        'needs_met_reason',
-        'needs_met_reason_raw',
-        'programme_recommendation',
-        'programme_recommendation_raw']
+        'cash_modality_raw',
+        'community_priorities',
+        'community_priorities_raw',
+        'inclusion_reason',
+        'inclusion_yesno',
+        'inclusion_raw']
     
     scope_keys = [
         'scope_district',
@@ -75,11 +73,13 @@ if __name__ == '__main__':
     
     key_map = {
         'UID': 'avf_phone_id',
-        'selection_satisfaction_reason_raw': 'Selection_Satisfaction_Yesno (Text) - emergency_maap_pdm',
-        'cash_modality_reason_raw': 'Cash_Modality_Yesno (Text) - emergency_maap_pdm',
-        'main_needs_raw': 'Main_Needs (Text) - emergency_maap_pdm',
-        'needs_met_reason_raw': 'Needs_Met_Yesno (Text) - emergency_maap_pdm',
-        'programme_recommendation_raw': 'Programme_Recommendations (Text) - emergency_maap_pdm',
+        'needs_met_raw': 'Needs_Met_Yesno (Text) - emergency_maap_new_pdm',
+        'cash_modality_raw': 'Cash_Modality_Yesno (Text) - emergency_maap_new_pdm',
+        'community_priorities_raw': 'Community_Priorities (Text) - emergency_maap_new_pdm',
+        'inclusion_raw': 'Inclusion_Yes_No (Text) - emergency_maap_new_pdm',
+        'gender_raw': 'Gender (Text) - emergency_maap_new_demogs',
+        'age_raw': 'Age (Text) - emergency_maap_new_demogs',
+        'clan_identity_raw': 'Clan (Text) - emergency_maap_new_demogs',
         'scope_district': 'District',
         'HH_size': 'Household Size'}
 
@@ -94,15 +94,15 @@ if __name__ == '__main__':
     equal_keys.extend(demog_keys)
 
     yes_no_keys = [
-        'selection_satisfaction_yesno',
+        'needs_met_yesno',
         'cash_modality_yesno',
-        'needs_met_yesno']
+        'inclusion_yesno']
     concat_keys = [
-        'selection_satisfaction_reason_raw',
-        'cash_modality_reason_raw',
         'main_needs_raw',
+        'cash_modality_raw',
+        'community_priorities_raw',
         'needs_met_reason_raw',
-        'programme_recommendation_raw']
+        'inclusion_raw']
     
 
     # Export to CSV
