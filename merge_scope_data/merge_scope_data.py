@@ -8,7 +8,7 @@ from core_data_modules.traced_data.io import TracedDataJsonIO
 
 def open_scope(filepath):
     """
-    Opens the csv and and return a dictionary
+    Opens the csv and and returns a dictionary
     :param filepath: path to file containing SCOPE data
     :type filepath: string
     """
