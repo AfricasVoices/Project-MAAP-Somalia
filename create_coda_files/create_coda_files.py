@@ -63,6 +63,7 @@ if __name__ == '__main__':
         auto_cleaner = args.auto_cleaner
         auto_cleaner = AUTO_CLEANERS[auto_cleaner]
     else:
+        print('There is no matching cleaner for: {}'.format(args.auto_cleaner))
         auto_cleaner = None
 
     # Load in the coding scheme
@@ -73,8 +74,8 @@ if __name__ == '__main__':
         list_td = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
 
     # Filter out test messages sent by AVF.
-    list_td = [td for td in list_td
-    if not td.get('test_run', False)]
+    list_td = [td for td in list_td 
+                if not td.get('test_run', False)]
 
     # Keys used in the script
     message_key = '{} (Text) - {}'.format(variable_name, flow_name)
@@ -110,23 +111,22 @@ if __name__ == '__main__':
     # list of ids this was true for.
     coda_td = []
     for td in list_td:
-        if message_key in td:
-            if td[message_key] != '':
-                coda_td.append(td)
-            else:
-                missing_dict = dict()
-                na_label = CleaningUtils.make_cleaner_label(
-                            code_scheme,
-                            code_scheme.get_code_with_control_code(
-                                Codes.TRUE_MISSING),
-                            Metadata.get_call_location()
-                        )
-                missing_dict[coded_key] = na_label.to_dict()
-                td.append_data(
-                    missing_dict, 
-                    Metadata(user, Metadata.get_call_location(), time.time())
+        if td.get(message_key, '') == '':
+            coda_td.append(td)
+        else:
+            missing_dict = dict()
+            na_label = CleaningUtils.make_cleaner_label(
+                        code_scheme,
+                        code_scheme.get_code_with_control_code(
+                            Codes.TRUE_MISSING),
+                        Metadata.get_call_location()
                     )
-                print('{} was empty'.format(td['avf_phone_id']))
+            missing_dict[coded_key] = na_label.to_dict()
+            td.append_data(
+                missing_dict, 
+                Metadata(user, Metadata.get_call_location(), time.time())
+                )
+            print('{} was empty'.format(td['avf_phone_id']))
     # Output the CODA file for coded
     IOUtils.ensure_dirs_exist_for_file(coda_output_path)
     with open(coda_output_path, "w") as f:
