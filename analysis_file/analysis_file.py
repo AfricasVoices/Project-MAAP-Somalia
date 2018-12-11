@@ -54,16 +54,16 @@ if __name__ == '__main__':
         'clan_identity_raw']
 
     survey_keys = [
-        'needs_met',
         'needs_met_yesno',
+        'needs_met_reason',
         'needs_met_raw',
         'cash_modality_yesno',
         'cash_modality_reason',
         'cash_modality_raw',
         'community_priorities',
         'community_priorities_raw',
-        'inclusion_reason',
         'inclusion_yesno',
+        'inclusion_reason',
         'inclusion_raw']
     
     scope_keys = [
