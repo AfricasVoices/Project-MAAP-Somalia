@@ -84,8 +84,11 @@ if __name__ == '__main__':
     time_key = '{} (Time) - {}'.format(variable_name, flow_name)
 
     # Label data missing the key as true_missing
+    # Data with empty strings will also be labelled true missing
+    # create list that will be output to coda
+    coda_td = []
     for td in list_td:
-        if message_key not in td:
+        if td.get(message_key, '') == '':
             missing_dict = dict()
             na_label = CleaningUtils.make_cleaner_label(
                         code_scheme,
@@ -98,6 +101,8 @@ if __name__ == '__main__':
                 missing_dict, 
                 Metadata(user, Metadata.get_call_location(), time.time())
                 )
+        else:
+            coda_td.append(td)
         
     # Auto-code remaining data
     if auto_cleaner is not None:
@@ -107,26 +112,6 @@ if __name__ == '__main__':
     # Appends a message id to each object in the provided iterable of TracedData.
     TracedDataCoda2IO.add_message_ids(user, list_td, message_key, id_field)
 
-       # filter out empty messages for CODA, label them TRUE MISSING and output
-    # list of ids this was true for.
-    coda_td = []
-    for td in list_td:
-        if td.get(message_key, '') == '':
-            coda_td.append(td)
-        else:
-            missing_dict = dict()
-            na_label = CleaningUtils.make_cleaner_label(
-                        code_scheme,
-                        code_scheme.get_code_with_control_code(
-                            Codes.TRUE_MISSING),
-                        Metadata.get_call_location()
-                    )
-            missing_dict[coded_key] = na_label.to_dict()
-            td.append_data(
-                missing_dict, 
-                Metadata(user, Metadata.get_call_location(), time.time())
-                )
-            print('{} was empty'.format(td['avf_phone_id']))
     # Output the CODA file for coded
     IOUtils.ensure_dirs_exist_for_file(coda_output_path)
     with open(coda_output_path, "w") as f:
