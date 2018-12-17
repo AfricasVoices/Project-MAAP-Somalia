@@ -54,41 +54,55 @@ if __name__ == '__main__':
         'clan_identity_raw']
 
     survey_keys = [
-        'needs_met_yesno',
         'needs_met_reason',
+        'needs_met_yesno',
         'needs_met_raw',
-        'cash_modality_yesno',
         'cash_modality_reason',
+        'cash_modality_yesno',
         'cash_modality_raw',
         'community_priorities',
         'community_priorities_raw',
-        'inclusion_yesno',
         'inclusion_reason',
+        'inclusion_yesno',
         'inclusion_raw']
     
     scope_keys = [
         'scope_district',
-        'HH_size',
-        'Receipt_yesno']
+        'HH_size']
     
     key_map = {
         'UID': 'avf_phone_id',
+        'needs_met_reason': 'needs_met_yesno_coded',
+        'needs_met_yesno': 'needs_met_yesno_yesno',
         'needs_met_raw': 'Needs_Met_Yesno (Text) - emergency_maap_new_pdm',
+        
+        'cash_modality_reason': 'cash_modality_yesno_coded',
+        'cash_modality_yesno': 'cash_modality_yesno_yesno',
         'cash_modality_raw': 'Cash_Modality_Yesno (Text) - emergency_maap_new_pdm',
+        
+        'community_priorities': 'community_priorities_coded',
         'community_priorities_raw': 'Community_Priorities (Text) - emergency_maap_new_pdm',
+        
+        'inclusion_reason': 'inclusion_yesno_coded',
+        'inclusion_yesno': 'inclusion_yesno_yesno',
         'inclusion_raw': 'Inclusion_Yes_No (Text) - emergency_maap_new_pdm',
+        
+        'gender': 'gender_coded',
         'gender_raw': 'Gender (Text) - emergency_maap_new_demogs',
+        'age': 'age_coded',
         'age_raw': 'Age (Text) - emergency_maap_new_demogs',
+        'clan_identity': 'clan_coded',
         'clan_identity_raw': 'Clan (Text) - emergency_maap_new_demogs',
+        
         'scope_district': 'District',
-        'HH_size': 'Household Size'}
+        'household_size': 'Household Size'}
 
     # Load cleaned and coded message/survey data
     with open(data_input_path, 'r') as f:
-        trace_data = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
+        list_td = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
 
     # Translate keys to final values for analysis
-    AnalysisKeys.set_analysis_keys(user, trace_data, key_map)
+    AnalysisKeys.set_analysis_keys(user, list_td, key_map)
 
     equal_keys = ['UID']
     equal_keys.extend(demog_keys)
@@ -113,7 +127,7 @@ if __name__ == '__main__':
 
     # TODO Remove this in the main pipeline.
     for key in export_keys:
-        for td in trace_data:
+        for td in list_td:
             if key not in td.keys():
                 td.append_data(
                     {key: Codes.TRUE_MISSING},
@@ -122,16 +136,16 @@ if __name__ == '__main__':
 
     # Fold data to have one respondent per row
     to_be_folded = []
-    for td in trace_data:
+    for td in list_td:
         to_be_folded.append(td.copy())
 
     folded_data = FoldTracedData.fold_iterable_of_traced_data(
-        user, trace_data, fold_id_fn=lambda td: td['UID'],
+        user, list_td, fold_id_fn=lambda td: td['UID'],
         equal_keys=equal_keys, concat_keys=concat_keys, yes_no_keys=yes_no_keys)
 
     # Output to CSV with one message per row
     with open(csv_by_message_output_path, 'w') as f:
-        TracedDataCSVIO.export_traced_data_iterable_to_csv(trace_data, f, headers=export_keys)
+        TracedDataCSVIO.export_traced_data_iterable_to_csv(list_td, f, headers=export_keys)
 
     with open(csv_by_individual_output_path, "w") as f:
         TracedDataCSVIO.export_traced_data_iterable_to_csv(folded_data, f, headers=export_keys)
