@@ -28,10 +28,10 @@ if __name__ == '__main__':
                         help='Name of message variable in flow')
     parser.add_argument('coda_input_path', metavar='coda-input-path',
                         help='Manually-coded Coda file')
-    parser.add_argument('traced_json_output_path', metavar='json-output-path',
-                        help='Path to a JSON file to write merged results to')
     parser.add_argument('coding_scheme_path', metavar='coding-scheme-path',
                         help='Path to Coda scheme file used on coda file')
+    parser.add_argument('traced_json_output_path', metavar='json-output-path',
+                        help='Path to a JSON file to write merged results to')
     parser.add_argument('is_yes_no', metavar='is-yes-no',
                         help='Is this variable a yes no question')
                         
@@ -41,8 +41,8 @@ if __name__ == '__main__':
     json_input_path = args.json_input_path
     variable_name = args.variable_name
     coda_input_path = args.coda_input_path
-    traced_json_output_path = args.traced_json_output_path
     coding_scheme_path = args.coding_scheme_path
+    traced_json_output_path = args.traced_json_output_path
     is_yes_no = args.is_yes_no
 
     # Load data from JSON file
