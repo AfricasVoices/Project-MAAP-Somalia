@@ -7,57 +7,51 @@ from dateutil.parser import isoparse
 
 
 class AnalysisKeys(object):
-    # TODO: Move some of these methods to Core Data?
-
     @staticmethod
-    def get_date_time_utc(td):
-        return isoparse(td["created_on"]).strftime("%Y-%m-%d %H:%M")
+    def set_matrix_keys(user, list_td, keys_to_matrix):
+        '''
+        :param user: Person running this program
+        :type user: str
+        :param list_td: List of TracedData Objects
+        :type list_td: list
+        :param keys_to_matrix: List of keys to convert to matrix
+        :type keys_to_matrix: list
+        :return: List of keys that will be used to create the matrix
+        :rtype: list
+        '''
+        matrix_keys = set()
 
-    @staticmethod
-    def get_date_time_eat(td):
-        return isoparse(td["created_on"]).astimezone(pytz.timezone("Africa/Nairobi")).strftime("%Y-%m-%d %H:%M")
-
-    @staticmethod
-    def set_yes_no_matrix_keys(user, data, show_keys, coded_shows_prefix, radio_q_prefix):
-        for td in data:
+        for td in list_td:
             matrix_d = dict()
-
-            yes_no_key = coded_shows_prefix + "_yes_no"
-            yes_no = td[yes_no_key]
-            matrix_d[radio_q_prefix] = yes_no
-
-            for key in td:
-                if key.startswith(coded_shows_prefix) and key != yes_no_key:
-                    yes_prefix = radio_q_prefix + "_yes"
-                    no_prefix = radio_q_prefix + "_no"
-
-                    code_yes_key = key.replace(coded_shows_prefix, yes_prefix)
-                    code_no_key = key.replace(coded_shows_prefix, no_prefix)
-                    show_keys.update({code_yes_key, code_no_key})
-
-                    matrix_d[code_yes_key] = td[key] if yes_no == Codes.YES else Codes.MATRIX_0
-                    matrix_d[code_no_key] = td[key] if yes_no == Codes.NO else Codes.MATRIX_0
-
+            for key in keys_to_matrix:
+                if key in td:
+                    matrix_keys.add(td[key])
+                    matrix_d[td[key]] = Codes.MATRIX_1
             td.append_data(matrix_d, Metadata(user, Metadata.get_call_location(), time.time()))
-            
-    @staticmethod
-    def set_matrix_keys(user, data, all_matrix_keys, scheme, coded_key, matrix_prefix=""):
-        for td in data:
+        
+        for td in list_td:
             matrix_d = dict()
-
-            for label in td.get(coded_key, []):
-                matrix_d[f"{matrix_prefix}{scheme.get_code_with_id(label['CodeID']).string_value}"] = Codes.MATRIX_1
-
-            for key in all_matrix_keys:
-                if key not in matrix_d:
+            for key in matrix_keys:
+                if key not in td:
                     matrix_d[key] = Codes.MATRIX_0
-
             td.append_data(matrix_d, Metadata(user, Metadata.get_call_location(), time.time()))
 
+        return list(matrix_keys)
+
     @staticmethod
-    def set_analysis_keys(user, data, key_map):
-        for td in data:
+    def set_analysis_keys(user, list_td, key_map):
+        '''
+        :param user: Person running this program
+        :type user: str
+        :param list_td: List of TracedData Objects
+        :type list_td: list
+        :param key_map: Dict of key, value pairs to translate keys to. The key
+                        is what the value will be converted to
+        :type key_map: dict
+        '''
+        for td in list_td:
             td.append_data(
-                {new_key: td[old_key] for new_key, old_key in key_map.items()},
+                {new_key: td[old_key] for new_key, old_key in key_map.items()
+                if old_key in td},
                 Metadata(user, Metadata.get_call_location(), time.time())
             )
