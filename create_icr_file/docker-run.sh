@@ -2,11 +2,11 @@
 
 set -e
 
-IMAGE_NAME=maap-get-coda-files
+IMAGE_NAME=maap-create-icr-files
 
 # Check that the correct number of arguments were provided.
-if [[ $# -ne 6 ]]; then
-    echo "Usage: sh docker-run.sh <user> <json-input-path> <flow-name> <variable-name> <coda-output-path> <prev-coda-input-path>"
+if [[ $# -ne 5 ]]; then
+    echo "Usage: sh docker-run.sh <user> <json-input-path> <flow-name> <variable-name> <icr-output-path>"
     exit
 fi
 
@@ -15,8 +15,7 @@ USER=$1
 INPUT_JSON=$2
 FLOW_NAME=$3
 VARIABLE_NAME=$4
-OUTPUT_CODA=$5
-PREV_CODA=$6
+OUTPUT_ICR=$5
 
 # Build an image for this pipeline stage.
 docker build -t "$IMAGE_NAME" .
@@ -32,12 +31,10 @@ trap finish EXIT
 
 # Copy input data into the container
 docker cp "$INPUT_JSON" "$container:/data/input.json"
-if [ -d "$PREV_CODA" ]; then
-    docker cp "$PREV_CODA" "$container:/data/prev_coda.csv"
-fi
+
 # Run the container
 docker start -a -i "$container"
 
 # Copy the output data back out of the container
-mkdir -p "$(dirname "$OUTPUT_CODA")"
-docker cp "$container:/data/output-coda.csv" "$OUTPUT_CODA"
+mkdir -p "$(dirname "$OUTPUT_ICR")"
+docker cp "$container:/data/output-icr.csv" "$OUTPUT_ICR"
