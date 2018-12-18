@@ -64,7 +64,7 @@ if __name__ == '__main__':
     
     scope_keys = [
         'scope_district',
-        'HH_size']
+        'household_size']
 
     key_map = {
         'UID': 'avf_phone_id',
@@ -121,15 +121,6 @@ if __name__ == '__main__':
     export_keys.extend(survey_keys)
     export_keys.extend(matrix_keys)
     export_keys.extend(scope_keys)
-
-    # TODO Remove this in the main pipeline.
-    for key in export_keys:
-        for td in list_td:
-            if key not in td.keys():
-                td.append_data(
-                    {key: Codes.TRUE_MISSING},
-                    Metadata(user, Metadata.get_call_location(), time.time())
-                )
 
     # Fold data to have one respondent per row
     to_be_folded = []
