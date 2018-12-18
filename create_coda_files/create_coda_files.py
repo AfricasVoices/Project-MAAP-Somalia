@@ -49,7 +49,7 @@ if __name__ == '__main__':
         'coding_scheme_path', metavar='coding-scheme',
         help='Path to coding scheme that is for this data')
     parser.add_argument(
-        'has_yes_no', metavar='has-yes-no',
+        'has_yes_no', type=str, choices=['True','False'], metavar='has-yes-no',
         help='Is this variable a yes no question')
     parser.add_argument(
         'auto_cleaner', metavar='auto-cleaner',
@@ -67,8 +67,6 @@ if __name__ == '__main__':
         has_yes_no = True
     elif args.has_yes_no == 'False':
         has_yes_no = False
-    else:
-        raise Exception('<has-yes-no> only takes the strings "True" or "False"')
     if args.auto_cleaner in AUTO_CLEANERS.keys():
         auto_cleaner = AUTO_CLEANERS[args.auto_cleaner]
     else:
@@ -83,8 +81,7 @@ if __name__ == '__main__':
         list_td = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
 
     # Filter out test messages sent by AVF.
-    list_td = [td for td in list_td 
-                if not td.get('test_run', False)]
+    list_td = [td for td in list_td if not td.get('test_run', False)]
 
     # Keys used in the script
     message_key = '{} (Text) - {}'.format(variable_name, flow_name)
