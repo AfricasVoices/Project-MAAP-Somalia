@@ -70,9 +70,10 @@ if __name__ == '__main__':
         has_yes_no = False
     if args.auto_cleaner in AUTO_CLEANERS.keys():
         auto_cleaner = AUTO_CLEANERS[args.auto_cleaner]
-    else:
-        print('There is no matching cleaner for: {}'.format(args.auto_cleaner))
+    elif args.auto_cleaner == 'None':
         auto_cleaner = None
+    else:
+        raise Exception('There is no matching cleaner for: {}. If there is not autocleaner use the option "None"'.format(args.auto_cleaner))
 
     # Load in the coding scheme
     code_scheme = open_scheme(coding_scheme_path)
