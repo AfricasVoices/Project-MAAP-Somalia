@@ -13,6 +13,7 @@ from core_data_modules.data_models import Scheme
 
 # opens a coding scheme
 def open_scheme(filepath):
+
     with open(filepath, "r") as f:
         firebase_map = json.load(f)
         return Scheme.from_firebase_map(firebase_map)
@@ -77,6 +78,7 @@ if __name__ == '__main__':
 
     # Load in the coding scheme
     code_scheme = open_scheme(coding_scheme_path)
+
 
     # Load traced data list from JSON file
     with open(json_input_path, 'r') as f:
