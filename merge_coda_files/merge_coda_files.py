@@ -58,7 +58,7 @@ if __name__ == '__main__':
                         help='Path to Coda scheme file used on coda file')
     parser.add_argument('traced_json_output_path', metavar='json-output-path',
                         help='Path to a JSON file to write merged results to')
-    parser.add_argument('is_yes_no', metavar='is-yes-no',
+    parser.add_argument('has_yes_no', metavar='has-yes-no',
                         help='Is this variable a yes no question')
                         
     
@@ -69,7 +69,12 @@ if __name__ == '__main__':
     coda_input_path = args.coda_input_path
     coding_scheme_path = args.coding_scheme_path
     traced_json_output_path = args.traced_json_output_path
-    is_yes_no = args.is_yes_no
+    if args.has_yes_no == 'True':
+        has_yes_no = True
+    elif args.has_yes_no == 'False'
+        has_yes_no = False
+    else:
+        raise Exception('<has-yes-no> only takes the strings "True" or "False"')
 
     # Load data from JSON file
     with open(json_input_path, 'r') as f:
@@ -78,24 +83,18 @@ if __name__ == '__main__':
     # Load the coding scheme
     code_scheme = open_scheme(coding_scheme_path)
 
-
     # Merge manually coded survey Coda files into the cleaned dataset
     nr_label = CleaningUtils.make_cleaner_label(
                 code_scheme, 
                 code_scheme.get_code_with_control_code(Codes.NOT_REVIEWED),
                 Metadata.get_call_location()
             )
-    id_field = 'Cash_Modality_Yesno (Text) - emergency_maap_new_pdm_id'
+    id_field = '{}_id'.format(variable_name.lower())
     coded_key = '{}_coded'.format(variable_name.lower())
 
-    if is_yes_no == 'True':
-        is_yes_no = True
+    if has_yes_no:
         yes_no_key = '{}_yesno'.format(variable_name.lower())
         yes_no_scheme = open_scheme('Yes_No.json')
-    else:
-        is_yes_no = False
-
-    if is_yes_no:
         coding_schemes = {
             coded_key: code_scheme,
             yes_no_key: yes_no_scheme,
@@ -109,7 +108,6 @@ if __name__ == '__main__':
             user, list_td, id_field, coding_schemes, nr_label, f)
     for key, code_scheme in coding_schemes.items():
         get_strings_coda(KEY_MAP, code_scheme, list_td)
-
     
     # Write coded data back out to disk
     IOUtils.ensure_dirs_exist_for_file(traced_json_output_path)
