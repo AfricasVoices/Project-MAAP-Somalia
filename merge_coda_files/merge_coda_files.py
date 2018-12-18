@@ -17,6 +17,35 @@ def _open_scheme(filepath):
         firebase_map = json.load(f)
         return Scheme.from_firebase_map(firebase_map)
 
+def _get_strings_coda(key_map, code_scheme):
+    for td in data:
+            td.append_data(
+                {new_key: td[old_key] for new_key, old_key in key_map.items()
+                if old_key in td},
+                Metadata(user, Metadata.get_call_location(), time.time())
+            )
+    for td in data:
+            td.append_data(
+                {plan.analysis_file_key: plan.code_scheme.get_code_with_id(td[plan.coded_field]["CodeID"]).string_value
+                 for plan in DatasetSpecification.SURVEY_CODING_PLANS},
+                Metadata(user, Metadata.get_call_location(), time.time())
+            )
+KEY_MAP = {
+    'needs_met_reason': 'needs_met_yesno_coded',
+    'needs_met_yesno': 'needs_met_yesno_yesno',
+    
+    'cash_modality_reason': 'cash_modality_yesno_coded',
+    'cash_modality_yesno': 'cash_modality_yesno_yesno',
+    
+    'community_priorities': 'community_priorities_coded',
+    
+    'inclusion_reason': 'inclusion_yesno_coded',
+    'inclusion_yesno': 'inclusion_yesno_yesno',
+    
+    'gender': 'gender_coded',
+    'age': 'age_coded',
+    'clan_identity': 'clan_coded',
+}    
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Merges manually cleaned files back into a traced data'
