@@ -12,14 +12,14 @@ from core_data_modules.cleaners.cleaning_utils import CleaningUtils
 from core_data_modules.data_models import Scheme
 
 # opens a coding scheme
-def _open_scheme(filepath):
+def open_scheme(filepath):
     with open(filepath, "r") as f:
         firebase_map = json.load(f)
         return Scheme.from_firebase_map(firebase_map)
 
 #Autocleaners that exist for this project
-AUTO_CLEANERS ={'gender':somali.DemographicCleaner.clean_gender,
-                'age':somali.DemographicCleaner.clean_age,
+AUTO_CLEANERS = {'gender':somali.DemographicCleaner.clean_gender,
+                'age':lambda x: str(somali.DemographicCleaner.clean_age(x)),
                 'yes_no':somali.DemographicCleaner.clean_yes_no,
                 }
 
@@ -49,7 +49,7 @@ if __name__ == '__main__':
         'coding_scheme_path', metavar='coding-scheme',
         help='Path to coding scheme that is for this data')
     parser.add_argument(
-        'is_yes_no', metavar='is-yes-no',
+        'has_yes_no', metavar='has-yes-no',
         help='Is this variable a yes no question')
     parser.add_argument(
         'auto_cleaner', metavar='auto-cleaner',
@@ -63,16 +63,20 @@ if __name__ == '__main__':
     traced_json_output_path = args.traced_json_output_path
     coda_output_path = args.coda_output_path
     coding_scheme_path = args.coding_scheme_path
-    is_yes_no = args.is_yes_no
+    if args.has_yes_no == 'True':
+        has_yes_no = True
+    elif args.has_yes_no == 'False':
+        has_yes_no = False
+    else:
+        raise Exception('<has-yes-no> only takes the strings "True" or "False"')
     if args.auto_cleaner in AUTO_CLEANERS.keys():
-        auto_cleaner = args.auto_cleaner
-        auto_cleaner = AUTO_CLEANERS[auto_cleaner]
+        auto_cleaner = AUTO_CLEANERS[args.auto_cleaner]
     else:
         print('There is no matching cleaner for: {}'.format(args.auto_cleaner))
         auto_cleaner = None
 
     # Load in the coding scheme
-    code_scheme = _open_scheme(coding_scheme_path)
+    code_scheme = open_scheme(coding_scheme_path)
 
     # Load traced data list from JSON file
     with open(json_input_path, 'r') as f:
@@ -85,15 +89,13 @@ if __name__ == '__main__':
     # Keys used in the script
     message_key = '{} (Text) - {}'.format(variable_name, flow_name)
     coded_key = '{}_coded'.format(variable_name.lower())
-    id_field = '{}_id'.format(message_key)
+    id_field = '{}_id'.format(variable_name.lower())
     time_key = '{} (Time) - {}'.format(variable_name, flow_name)
-    if is_yes_no == 'True':
-        is_yes_no = True
+    if has_yes_no:
         yes_no_key = '{}_yesno'.format(variable_name.lower())
-        yes_no_scheme = _open_scheme('Yes_No.json')
+        yes_no_scheme = open_scheme('Yes_No.json')
         yes_no_cleaner = AUTO_CLEANERS['yes_no']
     else:
-        is_yes_no = False
         yes_no_cleaner = None
 
     # Label data missing the key as true_missing
@@ -110,7 +112,13 @@ if __name__ == '__main__':
                         Metadata.get_call_location()
                     )
             missing_dict[coded_key] = na_label.to_dict()
-            if is_yes_no:
+            if has_yes_no:
+                na_label = CleaningUtils.make_cleaner_label(
+                        yes_no_scheme,
+                        yes_no_scheme.get_code_with_control_code(
+                            Codes.TRUE_MISSING),
+                        Metadata.get_call_location()
+                    )
                 missing_dict[yes_no_key] = na_label.to_dict()
             td.append_data(
                 missing_dict, 
@@ -132,7 +140,7 @@ if __name__ == '__main__':
 
     # Output the CODA file for coded
     IOUtils.ensure_dirs_exist_for_file(coda_output_path)
-    if is_yes_no:
+    if has_yes_no:
         coding_schemes = {
             coded_key: code_scheme,
             yes_no_key: yes_no_scheme,
