@@ -15,6 +15,8 @@ RP_TOKEN=$4
 DATA_ROOT=$5
 TEST_CONTACTS_PATH=$6
 
+./checkout_rapid_pro_tools.sh "$RP_DIR"
+
 cd "$RP_DIR/fetch_contacts"
 
 mkdir -p "$DATA_ROOT/02 Raw Contacts"
