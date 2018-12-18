@@ -12,22 +12,19 @@ from core_data_modules.util import IOUtils
 from core_data_modules.data_models import Scheme
 
 # opens a coding scheme
-def _open_scheme(filepath):
+def open_scheme(filepath):
     with open(filepath, "r") as f:
         firebase_map = json.load(f)
         return Scheme.from_firebase_map(firebase_map)
 
-def _get_strings_coda(key_map, code_scheme):
-    for td in data:
+def get_strings_coda(key_map, code_scheme, list_td):
+    list_codeids = [code.code_id for code in code_scheme.codes]
+    for td in list_td:
             td.append_data(
-                {new_key: td[old_key] for new_key, old_key in key_map.items()
-                if old_key in td},
-                Metadata(user, Metadata.get_call_location(), time.time())
-            )
-    for td in data:
-            td.append_data(
-                {plan.analysis_file_key: plan.code_scheme.get_code_with_id(td[plan.coded_field]["CodeID"]).string_value
-                 for plan in DatasetSpecification.SURVEY_CODING_PLANS},
+                {new_key: code_scheme.get_code_with_id(td[old_key]["CodeID"]).string_value
+                for new_key, old_key in key_map.items()
+                if old_key in td
+                if td[old_key]["CodeID"] in list_codeids},
                 Metadata(user, Metadata.get_call_location(), time.time())
             )
 KEY_MAP = {
@@ -79,7 +76,7 @@ if __name__ == '__main__':
         list_td = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
     
     # Load the coding scheme
-    code_scheme = _open_scheme(coding_scheme_path)
+    code_scheme = open_scheme(coding_scheme_path)
 
 
     # Merge manually coded survey Coda files into the cleaned dataset
@@ -94,7 +91,7 @@ if __name__ == '__main__':
     if is_yes_no == 'True':
         is_yes_no = True
         yes_no_key = '{}_yesno'.format(variable_name.lower())
-        yes_no_scheme = _open_scheme('Yes_No.json')
+        yes_no_scheme = open_scheme('Yes_No.json')
     else:
         is_yes_no = False
 
@@ -110,6 +107,9 @@ if __name__ == '__main__':
     with open(coda_input_path, "r") as f:
         TracedDataCoda2IO.import_coda_2_to_traced_data_iterable(
             user, list_td, id_field, coding_schemes, nr_label, f)
+    for key, code_scheme in coding_schemes.items():
+        get_strings_coda(KEY_MAP, code_scheme, list_td)
+
     
     # Write coded data back out to disk
     IOUtils.ensure_dirs_exist_for_file(traced_json_output_path)
