@@ -58,6 +58,7 @@ if __name__ == '__main__':
                         help='Path to Coda scheme file used on coda file')
     parser.add_argument('traced_json_output_path', metavar='json-output-path',
                         help='Path to a JSON file to write merged results to')
+    # There should be only one Yes/No coding scheme for if this is true
     parser.add_argument('has_yes_no', metavar='has-yes-no',
                         help='Is this variable a yes no question')
                         
@@ -71,7 +72,7 @@ if __name__ == '__main__':
     traced_json_output_path = args.traced_json_output_path
     if args.has_yes_no == 'True':
         has_yes_no = True
-    elif args.has_yes_no == 'False'
+    elif args.has_yes_no == 'False':
         has_yes_no = False
     else:
         raise Exception('<has-yes-no> only takes the strings "True" or "False"')
