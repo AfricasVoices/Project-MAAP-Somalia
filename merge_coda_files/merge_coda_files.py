@@ -17,16 +17,25 @@ def open_scheme(filepath):
         firebase_map = json.load(f)
         return Scheme.from_firebase_map(firebase_map)
 
-def get_strings_coda(key_map, code_scheme, list_td):
+def coda_id_to_strings(key_map, code_scheme, list_td):
+    '''
+    Converts CODA code IDs to strings
+    :param key_map: Dict of key, value pairs to translate keys to. The key
+                    is what the value will be converted to
+    :type key_map: dict
+    :param code_scheme: Coding scheme that contains the codes
+    :type code_scheme: Scheme
+    :param list_td: List of TracedData Objects
+    :type list_td: list
+    '''
     list_codeids = [code.code_id for code in code_scheme.codes]
     for td in list_td:
-            td.append_data(
-                {new_key: code_scheme.get_code_with_id(td[old_key]["CodeID"]).string_value
-                for new_key, old_key in key_map.items()
-                if old_key in td
-                if td[old_key]["CodeID"] in list_codeids},
-                Metadata(user, Metadata.get_call_location(), time.time())
-            )
+        td.append_data(
+            {new_key: code_scheme.get_code_with_id(td[old_key]["CodeID"]).string_value
+            for new_key, old_key in key_map.items()
+            if old_key in td and td[old_key]["CodeID"] in list_codeids},
+            Metadata(user, Metadata.get_call_location(), time.time())
+        )
 
 KEY_MAP = {
     'needs_met_reason': 'needs_met_yesno_coded',
@@ -60,7 +69,7 @@ if __name__ == '__main__':
                         help='Path to Coda scheme file used on coda file')
     parser.add_argument('traced_json_output_path', metavar='json-output-path',
                         help='Path to a JSON file to write merged results to')
-    # There should be only one Yes/No coding scheme for if this is true
+    # There is only one Yes/No coding scheme, it is used across this project
     parser.add_argument('has_yes_no', metavar='has-yes-no',
                         help='Is this variable a yes no question')
                         
@@ -97,7 +106,7 @@ if __name__ == '__main__':
 
     if has_yes_no:
         yes_no_key = '{}_yesno'.format(variable_name.lower())
-        yes_no_scheme = open_scheme('Yes_No.json')
+        yes_no_scheme = open_scheme('../coding_schemes/Yes_No.json')
         coding_schemes = {
             coded_key: code_scheme,
             yes_no_key: yes_no_scheme,
@@ -110,7 +119,7 @@ if __name__ == '__main__':
         TracedDataCoda2IO.import_coda_2_to_traced_data_iterable(
             user, list_td, id_field, coding_schemes, nr_label, f)
     for key, code_scheme in coding_schemes.items():
-        get_strings_coda(KEY_MAP, code_scheme, list_td)
+        coda_id_to_strings(KEY_MAP, code_scheme, list_td)
     
     # Write coded data back out to disk
     IOUtils.ensure_dirs_exist_for_file(traced_json_output_path)
