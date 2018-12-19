@@ -28,12 +28,12 @@ def coda_id_to_strings(key_map, code_scheme, list_td):
     :param list_td: List of TracedData Objects
     :type list_td: list
     '''
-    list_codeids = [code.code_id for code in code_scheme.codes]
+    list_code_ids = [code.code_id for code in code_scheme.codes]
     for td in list_td:
         td.append_data(
             {new_key: code_scheme.get_code_with_id(td[old_key]["CodeID"]).string_value
             for new_key, old_key in key_map.items()
-            if old_key in td and td[old_key]["CodeID"] in list_codeids},
+            if old_key in td and td[old_key]["CodeID"] in list_code_ids},
             Metadata(user, Metadata.get_call_location(), time.time())
         )
 
