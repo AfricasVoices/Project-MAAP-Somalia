@@ -27,6 +27,7 @@ def get_strings_coda(key_map, code_scheme, list_td):
                 if td[old_key]["CodeID"] in list_codeids},
                 Metadata(user, Metadata.get_call_location(), time.time())
             )
+
 KEY_MAP = {
     'needs_met_reason': 'needs_met_yesno_coded',
     'needs_met_yesno': 'needs_met_yesno_yesno',
@@ -43,6 +44,7 @@ KEY_MAP = {
     'age': 'age_coded',
     'clan_identity': 'clan_coded',
 }    
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Merges manually cleaned files back into a traced data'
