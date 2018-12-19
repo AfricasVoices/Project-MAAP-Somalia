@@ -1,7 +1,7 @@
 {
   "Codes": [
     {
-      "CodeID": "code-5740cafe5c18",
+      "CodeID": "code-08d7d1c2ac59",
       "CodeType": "Normal",
       "DisplayText": "Prefer current modality",
       "NumericValue": 0,
@@ -9,15 +9,15 @@
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-5f7c2445b240",
+      "CodeID": "code-bdf0e256d2fe",
       "CodeType": "Normal",
-      "DisplayText": "Safety ",
+      "DisplayText": "Safety",
       "NumericValue": 1,
-      "StringValue": "safety_",
+      "StringValue": "safety",
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-9564e0240fa4",
+      "CodeID": "code-d41f6f71709d",
       "CodeType": "Normal",
       "DisplayText": "Access and use mobile phones",
       "NumericValue": 2,
@@ -25,7 +25,7 @@
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-06a60c557aca",
+      "CodeID": "code-f8eaff57f56f",
       "CodeType": "Normal",
       "DisplayText": "Easy access",
       "NumericValue": 3,
@@ -33,7 +33,7 @@
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-289b8490304d",
+      "CodeID": "code-a83b56d23619",
       "CodeType": "Normal",
       "DisplayText": "Inclusive access",
       "NumericValue": 4,
@@ -41,23 +41,23 @@
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-439a68abb1bf",
+      "CodeID": "code-813568c5bf22",
       "CodeType": "Normal",
-      "DisplayText": "Prevents corruption ",
+      "DisplayText": "Prevents corruption",
       "NumericValue": 5,
-      "StringValue": "prevents_corruption_",
+      "StringValue": "prevents_corruption",
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-2425e532273a",
+      "CodeID": "code-502e618cfe21",
       "CodeType": "Normal",
-      "DisplayText": "Long queues ",
+      "DisplayText": "Long queues",
       "NumericValue": 6,
-      "StringValue": "long_queues_",
+      "StringValue": "long_queues",
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-776fb4f077c2",
+      "CodeID": "code-79e628dc8c60",
       "CodeType": "Normal",
       "DisplayText": "Security concerns",
       "NumericValue": 7,
@@ -65,7 +65,7 @@
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-a1b6a5613618",
+      "CodeID": "code-b879bda90a5c",
       "CodeType": "Normal",
       "DisplayText": "Delays in the program",
       "NumericValue": 8,
@@ -73,7 +73,7 @@
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-8a30080a377b",
+      "CodeID": "code-f459bd4d31d3",
       "CodeType": "Normal",
       "DisplayText": "Distance",
       "NumericValue": 9,
@@ -81,7 +81,7 @@
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-40e27f0f474a",
+      "CodeID": "code-f67dae2bd4c2",
       "CodeType": "Normal",
       "DisplayText": "Ambivalent",
       "NumericValue": 10,
@@ -89,7 +89,7 @@
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-5e21ca76eb8d",
+      "CodeID": "code-564016a9184b",
       "CodeType": "Normal",
       "DisplayText": "Other",
       "NumericValue": 11,
@@ -97,7 +97,7 @@
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-20c2c3cac6d4",
+      "CodeID": "code-beb71ed70ac8",
       "CodeType": "Normal",
       "DisplayText": "Shelter",
       "NumericValue": 12,
@@ -169,6 +169,6 @@
     }
   ],
   "Name": "Cash_Modality_Yesno",
-  "SchemeID": "Scheme-dedb76d65675",
+  "SchemeID": "Scheme-d24128c4c5c7",
   "Version": "0.0.0.1"
 }
