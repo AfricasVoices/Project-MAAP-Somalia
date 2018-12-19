@@ -1,0 +1,94 @@
+{
+  "Codes": [
+    {
+      "CodeID": "code-faa18fd5f2b9",
+      "CodeType": "Normal",
+      "DisplayText": "Opportunity to give opinions",
+      "NumericValue": 0,
+      "StringValue": "opportunity_to_give_opinions",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-2f75673d0de1",
+      "CodeType": "Normal",
+      "DisplayText": "Not received cash",
+      "NumericValue": 1,
+      "StringValue": "not_received_cash",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-337ac6448cfb",
+      "CodeType": "Normal",
+      "DisplayText": "Lack of information",
+      "NumericValue": 2,
+      "StringValue": "lack_of_information",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-NA-f93d3eb7",
+      "CodeType": "Control",
+      "ControlCode": "NA",
+      "DisplayText": "NA (missing)",
+      "NumericValue": -10,
+      "StringValue": "NA",
+      "VisibleInCoda": false
+    },
+    {
+      "CodeID": "code-NS-2c11b7c9",
+      "CodeType": "Control",
+      "ControlCode": "NS",
+      "DisplayText": "NS (skip)",
+      "NumericValue": -20,
+      "StringValue": "NS",
+      "VisibleInCoda": false
+    },
+    {
+      "CodeID": "code-NC-42f1d983",
+      "CodeType": "Control",
+      "ControlCode": "NC",
+      "DisplayText": "NC (not coded)",
+      "NumericValue": -30,
+      "StringValue": "NC",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-NR-5e3eee23",
+      "CodeType": "Control",
+      "ControlCode": "NR",
+      "DisplayText": "NR (not reviewed)",
+      "NumericValue": -40,
+      "StringValue": "NR",
+      "VisibleInCoda": false
+    },
+    {
+      "CodeID": "code-NIC-99631cb8",
+      "CodeType": "Control",
+      "ControlCode": "NIC",
+      "DisplayText": "NIC (not internally consistent)",
+      "NumericValue": -50,
+      "StringValue": "NIC",
+      "VisibleInCoda": false
+    },
+    {
+      "CodeID": "code-STOP-08b832a8",
+      "CodeType": "Control",
+      "ControlCode": "STOP",
+      "DisplayText": "STOP",
+      "NumericValue": -90,
+      "StringValue": "STOP",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-WS-adb25603b7af",
+      "CodeType": "Control",
+      "ControlCode": "WS",
+      "DisplayText": "WS (wrong scheme)",
+      "NumericValue": -100,
+      "StringValue": "WS",
+      "VisibleInCoda": true
+    }
+  ],
+  "Name": "Inclusion_Yes_No",
+  "SchemeID": "Scheme-c6f35c06ed94",
+  "Version": "0.0.0.1"
+}

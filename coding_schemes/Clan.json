@@ -1,0 +1,126 @@
+{
+  "Codes": [
+    {
+      "CodeID": "code-cec6417b925a",
+      "CodeType": "Normal",
+      "DisplayText": "Digil",
+      "NumericValue": 0,
+      "StringValue": "digil",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-1d1df67dc4dd",
+      "CodeType": "Normal",
+      "DisplayText": "Mirifle",
+      "NumericValue": 1,
+      "StringValue": "mirifle",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-d17887757c1f",
+      "CodeType": "Normal",
+      "DisplayText": "Ajuuran",
+      "NumericValue": 2,
+      "StringValue": "ajuuran",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-160755ca2f2c",
+      "CodeType": "Normal",
+      "DisplayText": "Marehan /Mareexan",
+      "NumericValue": 3,
+      "StringValue": "marehan_mareexan",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-5ff1e4c54b47",
+      "CodeType": "Normal",
+      "DisplayText": "Ogaden",
+      "NumericValue": 4,
+      "StringValue": "ogaden",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-b87391f19b72",
+      "CodeType": "Normal",
+      "DisplayText": "Gaboye",
+      "NumericValue": 5,
+      "StringValue": "gaboye",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-ded1e52c6adb",
+      "CodeType": "Normal",
+      "DisplayText": "Kamiisli",
+      "NumericValue": 6,
+      "StringValue": "kamiisli",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-NA-f93d3eb7",
+      "CodeType": "Control",
+      "ControlCode": "NA",
+      "DisplayText": "NA (missing)",
+      "NumericValue": -10,
+      "StringValue": "NA",
+      "VisibleInCoda": false
+    },
+    {
+      "CodeID": "code-NS-2c11b7c9",
+      "CodeType": "Control",
+      "ControlCode": "NS",
+      "DisplayText": "NS (skip)",
+      "NumericValue": -20,
+      "StringValue": "NS",
+      "VisibleInCoda": false
+    },
+    {
+      "CodeID": "code-NC-42f1d983",
+      "CodeType": "Control",
+      "ControlCode": "NC",
+      "DisplayText": "NC (not coded)",
+      "NumericValue": -30,
+      "StringValue": "NC",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-NR-5e3eee23",
+      "CodeType": "Control",
+      "ControlCode": "NR",
+      "DisplayText": "NR (not reviewed)",
+      "NumericValue": -40,
+      "StringValue": "NR",
+      "VisibleInCoda": false
+    },
+    {
+      "CodeID": "code-NIC-99631cb8",
+      "CodeType": "Control",
+      "ControlCode": "NIC",
+      "DisplayText": "NIC (not internally consistent)",
+      "NumericValue": -50,
+      "StringValue": "NIC",
+      "VisibleInCoda": false
+    },
+    {
+      "CodeID": "code-STOP-08b832a8",
+      "CodeType": "Control",
+      "ControlCode": "STOP",
+      "DisplayText": "STOP",
+      "NumericValue": -90,
+      "StringValue": "STOP",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-WS-adb25603b7af",
+      "CodeType": "Control",
+      "ControlCode": "WS",
+      "DisplayText": "WS (wrong scheme)",
+      "NumericValue": -100,
+      "StringValue": "WS",
+      "VisibleInCoda": true
+    }
+  ],
+  "Name": "Clan",
+  "SchemeID": "Scheme-dc8ad4b9f9f2",
+  "Version": "0.0.0.1"
+}
