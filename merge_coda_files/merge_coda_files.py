@@ -17,41 +17,43 @@ def open_scheme(filepath):
         firebase_map = json.load(f)
         return Scheme.from_firebase_map(firebase_map)
 
-def coda_id_to_strings(key_map, code_scheme, list_td):
+def coda_id_to_strings(old_key, key_map, code_scheme, list_td):
     '''
     Converts CODA code IDs to strings
-    :param key_map: Dict of key, value pairs to translate keys to. The key
-                    is what the value will be converted to
+    :param old_key: Key to be converted
+    :type old_key: str
+    :param key_map: Dict of key, value pairs to translate keys to. The value
+                    is what the key will be converted to. Old_key will be
+                    converted from this list.
     :type key_map: dict
     :param code_scheme: Coding scheme that contains the codes
     :type code_scheme: Scheme
     :param list_td: List of TracedData Objects
     :type list_td: list
     '''
-    list_code_ids = [code.code_id for code in code_scheme.codes]
+    new_key = key_map[old_key]
     for td in list_td:
-        td.append_data(
-            {new_key: code_scheme.get_code_with_id(td[old_key]["CodeID"]).string_value
-            for new_key, old_key in key_map.items()
-            if old_key in td and td[old_key]["CodeID"] in list_code_ids},
-            Metadata(user, Metadata.get_call_location(), time.time())
-        )
+        if old_key in td:
+            td.append_data(
+                {new_key: code_scheme.get_code_with_id(td[old_key]["CodeID"]).string_value},
+                Metadata(user, Metadata.get_call_location(), time.time())
+            )
 
 KEY_MAP = {
-    'needs_met_reason': 'needs_met_yesno_coded',
-    'needs_met_yesno': 'needs_met_yesno_yesno',
-    
-    'cash_modality_reason': 'cash_modality_yesno_coded',
-    'cash_modality_yesno': 'cash_modality_yesno_yesno',
-    
-    'community_priorities': 'community_priorities_coded',
-    
-    'inclusion_reason': 'inclusion_yesno_coded',
-    'inclusion_yesno': 'inclusion_yesno_yesno',
-    
-    'gender': 'gender_coded',
-    'age': 'age_coded',
-    'clan_identity': 'clan_coded',
+    'needs_met_yesno_coded': 'needs_met_reason',
+    'needs_met_yesno_yesno': 'needs_met_yesno' ,
+
+    'cash_modality_yesno_coded':'cash_modality_reason',
+    'cash_modality_yesno_yesno':'cash_modality_yesno',
+
+    'community_priorities_coded':'community_priorities',
+
+    'inclusion_yesno_coded':'inclusion_reason',
+    'inclusion_yesno_yesno':'inclusion_yesno',
+
+    'gender_coded': 'gender',
+    'age_coded': 'age',
+    'clan_coded': 'clan_identity',
 }    
 
 if __name__ == '__main__':
@@ -118,8 +120,10 @@ if __name__ == '__main__':
     with open(coda_input_path, "r") as f:
         TracedDataCoda2IO.import_coda_2_to_traced_data_iterable(
             user, list_td, id_field, coding_schemes, nr_label, f)
-    for key, code_scheme in coding_schemes.items():
-        coda_id_to_strings(KEY_MAP, code_scheme, list_td)
+
+    # Convert the old keys
+    for old_key, code_scheme in coding_schemes.items():
+        coda_id_to_strings(old_key, KEY_MAP, code_scheme, list_td)
     
     # Write coded data back out to disk
     IOUtils.ensure_dirs_exist_for_file(traced_json_output_path)
