@@ -18,14 +18,14 @@ VARIABLE_NAME=$4
 OUTPUT_JSON=$5
 OUTPUT_CODA=$6
 CODING_SCHEME=$7
-IS_YES_NO = $8
+HAS_YES_NO = $8
 AUTO_CLEANER=$9
 
 # Build an image for this pipeline stage.
 docker build -t "$IMAGE_NAME" .
 
 # Create a container from the image that was just built.
-container="$(docker container create --env USER="$USER" --env FLOW_NAME="$FLOW_NAME" --env VARIABLE_NAME="$VARIABLE_NAME" --env IS_YES_NO="$IS_YES_NO" --env AUTO_CLEANER="$AUTO_CLEANER" "$IMAGE_NAME")"
+container="$(docker container create --env USER="$USER" --env FLOW_NAME="$FLOW_NAME" --env VARIABLE_NAME="$VARIABLE_NAME" --env HAS_YES_NO="$HAS_YES_NO" --env AUTO_CLEANER="$AUTO_CLEANER" "$IMAGE_NAME")"
 
 function finish {
     # Tear down the container when done.
