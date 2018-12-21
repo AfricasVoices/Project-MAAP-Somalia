@@ -48,8 +48,8 @@ KEY_MAP = {
 
     'community_priorities_coded':'community_priorities',
 
-    'inclusion_yesno_coded':'inclusion_reason',
-    'inclusion_yesno_yesno':'inclusion_yesno',
+    'inclusion_yes_no_coded':'inclusion_reason',
+    'inclusion_yes_no_yesno':'inclusion_yesno',
 
     'gender_coded': 'gender',
     'age_coded': 'age',
