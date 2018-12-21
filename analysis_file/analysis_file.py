@@ -73,11 +73,8 @@ if __name__ == '__main__':
         'community_priorities_raw': 'Community_Priorities (Text) - emergency_maap_new_pdm',
         'inclusion_raw': 'Inclusion_Yes_No (Text) - emergency_maap_new_pdm',
         
-        'gender': 'gender_coded',
         'gender_raw': 'Gender (Text) - emergency_maap_new_demogs',
-        'age': 'age_coded',
         'age_raw': 'Age (Text) - emergency_maap_new_demogs',
-        'clan_identity': 'clan_coded',
         'clan_identity_raw': 'Clan (Text) - emergency_maap_new_demogs',
         
         'scope_district': 'District',
