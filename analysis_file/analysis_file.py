@@ -84,7 +84,7 @@ if __name__ == '__main__':
     with open(data_input_path, 'r') as f:
         list_td = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
 
-    keys_to_matrix = [
+    keys_to_matrix_convert = [
         'needs_met_reason',
         'cash_modality_reason',
         'community_priorities',
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     ]
 
     # Get the matrix keys
-    matrix_keys = AnalysisKeys.set_matrix_keys(user, list_td, keys_to_matrix)
+    matrix_keys = AnalysisKeys.set_matrix_keys(user, list_td, keys_to_matrix_convert)
 
     # Translate keys to final values for analysis
     AnalysisKeys.set_analysis_keys(user, list_td, key_map)
@@ -110,9 +110,7 @@ if __name__ == '__main__':
         'community_priorities_raw',
         'needs_met_reason_raw',
         'inclusion_raw']
-    
 
-    # Export to CSV
     export_keys = ['UID']
     export_keys.extend(demog_keys)
     export_keys.extend(survey_keys)
