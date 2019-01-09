@@ -17,9 +17,11 @@ def open_scheme(filepath):
         firebase_map = json.load(f)
         return Scheme.from_firebase_map(firebase_map)
 
-def coda_id_to_strings(old_key, key_map, code_scheme, list_td):
+def coda_id_to_strings(list_td, old_key, key_map, code_scheme):
     '''
     Converts CODA code IDs to strings
+    :param list_td: List of TracedData Objects
+    :type list_td: list
     :param old_key: Key to be converted
     :type old_key: str
     :param key_map: Dict of key, value pairs to translate keys to. The value
@@ -28,8 +30,6 @@ def coda_id_to_strings(old_key, key_map, code_scheme, list_td):
     :type key_map: dict
     :param code_scheme: Coding scheme that contains the codes
     :type code_scheme: Scheme
-    :param list_td: List of TracedData Objects
-    :type list_td: list
     '''
     new_key = key_map[old_key]
     for td in list_td:
@@ -123,7 +123,7 @@ if __name__ == '__main__':
 
     # Convert the old keys
     for old_key, code_scheme in coding_schemes.items():
-        coda_id_to_strings(old_key, KEY_MAP, code_scheme, list_td)
+        coda_id_to_strings(list_td, old_key, KEY_MAP, code_scheme)
     
     # Write coded data back out to disk
     IOUtils.ensure_dirs_exist_for_file(traced_json_output_path)
