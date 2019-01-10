@@ -123,7 +123,7 @@ if __name__ == '__main__':
         to_be_folded.append(td.copy())
 
     folded_data = FoldTracedData.fold_iterable_of_traced_data(
-        user, list_td, fold_id_fn=lambda td: td['UID'],
+        user, to_be_folded, fold_id_fn=lambda td: td['UID'],
         equal_keys=equal_keys, concat_keys=concat_keys,
         matrix_keys=matrix_keys, yes_no_keys=yes_no_keys)
 
