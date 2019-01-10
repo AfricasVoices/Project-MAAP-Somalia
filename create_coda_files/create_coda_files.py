@@ -50,6 +50,9 @@ if __name__ == '__main__':
         'coding_scheme_path', metavar='coding-scheme',
         help='Path to coding scheme that is for this data')
     parser.add_argument(
+        'is_multi_coded', type=str, choices=['True','False'], metavar='is-multi-coded',
+        help='Is this variable supposed to be multi-coded')
+    parser.add_argument(
         'has_yes_no', type=str, choices=['True','False'], metavar='has-yes-no',
         help='Is this variable a yes no question')
     parser.add_argument(
@@ -64,6 +67,10 @@ if __name__ == '__main__':
     traced_json_output_path = args.traced_json_output_path
     coda_output_path = args.coda_output_path
     coding_scheme_path = args.coding_scheme_path
+    if args.is_multi_coded == 'True':
+        is_multi_coded = True
+    elif args.is_multi_coded == 'False':
+        is_multi_coded = False
     if args.has_yes_no == 'True':
         has_yes_no = True
     elif args.has_yes_no == 'False':
@@ -105,13 +112,22 @@ if __name__ == '__main__':
     for td in list_td:
         if td.get(message_key, '') == '':
             missing_dict = dict()
-            na_label = CleaningUtils.make_cleaner_label(
-                        code_scheme,
-                        code_scheme.get_code_with_control_code(
-                            Codes.TRUE_MISSING),
-                        Metadata.get_call_location()
-                    )
-            missing_dict[coded_key] = na_label.to_dict()
+            if is_multi_coded:
+                na_label = CleaningUtils.make_cleaner_label(
+                            code_scheme,
+                            code_scheme.get_code_with_control_code(
+                                Codes.TRUE_MISSING),
+                            Metadata.get_call_location()
+                        )
+                missing_dict[coded_key] = [na_label.to_dict()]
+            else:
+                na_label = CleaningUtils.make_cleaner_label(
+                            code_scheme,
+                            code_scheme.get_code_with_control_code(
+                                Codes.TRUE_MISSING),
+                            Metadata.get_call_location()
+                        )
+                missing_dict[coded_key] = na_label.to_dict()
             if has_yes_no:
                 na_label = CleaningUtils.make_cleaner_label(
                         yes_no_scheme,
