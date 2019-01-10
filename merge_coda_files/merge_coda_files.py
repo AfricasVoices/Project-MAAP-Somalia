@@ -98,11 +98,11 @@ if __name__ == '__main__':
     code_scheme = open_scheme(coding_scheme_path)
 
     # Merge manually coded survey Coda files into the cleaned dataset
-    nr_label = CleaningUtils.make_cleaner_label(
-                code_scheme, 
-                code_scheme.get_code_with_control_code(Codes.NOT_REVIEWED),
-                Metadata.get_call_location()
-            )
+    #nr_label = CleaningUtils.make_cleaner_label(
+    #            code_scheme, 
+    #            code_scheme.get_code_with_control_code(Codes.NOT_REVIEWED),
+    #            Metadata.get_call_location()
+    #        )
     id_field = '{}_id'.format(variable_name.lower())
     coded_key = '{}_coded'.format(variable_name.lower())
 
@@ -114,7 +114,10 @@ if __name__ == '__main__':
         }
         with open(coda_input_path, "r") as f:
             TracedDataCoda2IO.import_coda_2_to_traced_data_iterable(
-                user, list_td, id_field, coding_schemes, f)
+                user, list_td, id_field, {yes_no_key: yes_no_scheme}, f)
+        with open(coda_input_path, "r") as f:
+            TracedDataCoda2IO.import_coda_2_to_traced_data_iterable_multi_coded(
+                user, list_td, id_field, {coded_key: code_scheme}, f)
     else:   
         coding_schemes = {
             coded_key: code_scheme,
