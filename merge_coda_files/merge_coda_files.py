@@ -110,16 +110,18 @@ if __name__ == '__main__':
         yes_no_key = '{}_yesno'.format(variable_name.lower())
         yes_no_scheme = open_scheme('../coding_schemes/Yes_No.json')
         coding_schemes = {
-            coded_key: code_scheme,
             yes_no_key: yes_no_scheme,
         }
+        with open(coda_input_path, "r") as f:
+            TracedDataCoda2IO.import_coda_2_to_traced_data_iterable(
+                user, list_td, id_field, coding_schemes, f)
     else:   
         coding_schemes = {
             coded_key: code_scheme,
         }
-    with open(coda_input_path, "r") as f:
-        TracedDataCoda2IO.import_coda_2_to_traced_data_iterable(
-            user, list_td, id_field, coding_schemes, nr_label, f)
+        with open(coda_input_path, "r") as f:
+            TracedDataCoda2IO.import_coda_2_to_traced_data_iterable_multi_coded(
+                user, list_td, id_field, coding_schemes, f)
 
     # Convert the old keys
     for old_key, code_scheme in coding_schemes.items():
