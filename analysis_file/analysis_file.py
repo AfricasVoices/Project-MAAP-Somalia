@@ -84,12 +84,12 @@ if __name__ == '__main__':
     with open(data_input_path, 'r') as f:
         list_td = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
 
-    keys_to_matrix_convert = [
-        'needs_met_reason',
-        'cash_modality_reason',
-        'community_priorities',
-        'inclusion_reason',
-    ]
+    keys_to_matrix_convert = {
+        'needs_met_reason': 'q1_',
+        'cash_modality_reason': 'q2_',
+        'community_priorities': 'q3_',
+        'inclusion_reason': 'q4_',
+    }
 
     # Get the matrix keys
     matrix_keys = AnalysisKeys.set_matrix_keys(user, list_td, keys_to_matrix_convert)

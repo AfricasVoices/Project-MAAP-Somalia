@@ -14,8 +14,8 @@ class AnalysisKeys(object):
         :type user: str
         :param list_td: List of TracedData Objects
         :type list_td: list
-        :param keys_to_matrix: List of keys to convert to matrix
-        :type keys_to_matrix: list
+        :param keys_to_matrix: Dict of keys to convert to matrix and prefixes to add to the new keys
+        :type keys_to_matrix: dict
         :return: List of keys that will be used to create the matrix
         :rtype: list
         '''
@@ -23,12 +23,13 @@ class AnalysisKeys(object):
 
         for td in list_td:
             matrix_d = dict()
-            for key in keys_to_matrix:
+            for key, prefix in keys_to_matrix.items():
                 if key in td:
-                    matrix_keys.add(td[key])
-                    matrix_d[td[key]] = Codes.MATRIX_1
+                    new_key = td[key] + prefix
+                    matrix_keys.add(new_key)
+                    matrix_d[new_key] = Codes.MATRIX_1
             td.append_data(matrix_d, Metadata(user, Metadata.get_call_location(), time.time()))
-        
+
         for td in list_td:
             matrix_d = dict()
             for key in matrix_keys:
