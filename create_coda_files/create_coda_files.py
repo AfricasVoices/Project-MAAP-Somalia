@@ -3,6 +3,7 @@ import os
 import time
 from os import path
 import json
+from random import shuffle, seed
 
 from core_data_modules.cleaners import somali, Codes
 from core_data_modules.traced_data import Metadata, TracedData
@@ -155,6 +156,8 @@ if __name__ == '__main__':
     TracedDataCoda2IO.add_message_ids(user, list_td, message_key, id_field)
 
     # Output the CODA file for coded
+    seed(23)
+    shuffle(coda_td)
     IOUtils.ensure_dirs_exist_for_file(coda_output_path)
     if has_yes_no:
         coding_schemes = {
