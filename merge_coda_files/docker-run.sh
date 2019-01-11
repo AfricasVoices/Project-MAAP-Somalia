@@ -2,26 +2,28 @@
 
 set -e
 
-IMAGE_NAME=maap-merge-scope-data
+IMAGE_NAME=maap-merge-coda-files
 
 # Check that the correct number of arguments were provided.
-if [[ $# -ne 5 ]]; then
-    echo "Usage: sh docker-run.sh <user> <json-input-path> <contact-json-input-path> <scope-csv-path> <json-output-path>"
+if [ $# -ne 7 ]; then
+    echo "Usage: sh docker-run.sh <user> <json-input-path> <variable-name> <coda-input-path> <coding-scheme-path> <json-output-path> <has-yes-no>"
     exit
 fi
 
 # Assign the program arguments to bash variables.
 USER=$1
 INPUT_JSON=$2
-CONTACT_INPUT_JSON=$3
-SCOPE_CSV=$4
-OUTPUT_JSON=$5
+VARIABLE_NAME=$3
+INPUT_CODA=$4
+CODING_SCHEME=$5
+OUTPUT_JSON=$6
+HAS_YES_NO=$7
 
 # Build an image for this pipeline stage.
 docker build -t "$IMAGE_NAME" .
 
 # Create a container from the image that was just built.
-container="$(docker container create --env USER="$USER" "$IMAGE_NAME")"
+container="$(docker container create --env USER="$USER" --env VARIABLE_NAME="$VARIABLE_NAME" --env HAS_YES_NO="$HAS_YES_NO" "$IMAGE_NAME")"
 
 function finish {
     # Tear down the container when done.
@@ -31,9 +33,8 @@ trap finish EXIT
 
 # Copy input data into the container
 docker cp "$INPUT_JSON" "$container:/data/input.json"
-docker cp "$CONTACT_INPUT_JSON" "$container:/data/contact.json"
-docker cp "$SCOPE_CSV" "$container:/data/scope.csv"
-
+docker cp "$INPUT_CODA" "$container:/data/input_coda.json"
+docker cp "$CODING_SCHEME" "$container:/data/coding_scheme.json"
 
 # Run the container
 docker start -a -i "$container"

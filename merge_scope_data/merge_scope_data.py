@@ -8,15 +8,18 @@ from core_data_modules.traced_data.io import TracedDataJsonIO
 
 def open_scope(filepath):
     """
-    Generator that opens the csv and yields a row from it
+    Opens the csv and and returns a dictionary
     :param filepath: path to file containing SCOPE data
     :type filepath: string
     """
-    with open(filepath) as csvfile:
-        reader = csv.DictReader(csvfile)
+    with open(filepath) as f:
+        reader = csv.DictReader(f)
+        scope_data = {}
         for row in reader:
+            #print(row['scopeid'])
             scopeid = row['scopeid']
-            yield scopeid, row
+            scope_data[scopeid] = row
+        return scope_data
 
 
 if __name__ == "__main__":
@@ -44,13 +47,16 @@ if __name__ == "__main__":
 
     # load in the trace data
     with open(trace_json_path, 'r') as f:
-        trace_data = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
+        td_list = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
     # load in the contact trace data
     with open(contact_json_path, 'r') as f:
         contact_data = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
+    
+    #load in the scope data
+    scope_data = open_scope(scope_csv_path) 
 
     # append contact trace data to trace data
-    for trace in trace_data:
+    for trace in td_list:
         for contact in contact_data:
             if (trace['avf_phone_id'] == contact['avf_phone_id'] and
                     'maapscopeid' in contact):
@@ -59,17 +65,15 @@ if __name__ == "__main__":
                                            Metadata.get_call_location(),
                                            time.time()))
     # append SCOPE data to trace data
-    for trace in trace_data:
+    for trace in td_list:
         if 'maapscopeid' in trace:
-            # load in the SCOPE data
-            scope_data = open_scope(scope_csv_path)
-            for scope in scope_data:
-                if trace['maapscopeid'] == scope[0]:
-                    trace.append_data(dict(scope[1]),
+            for scopeid in scope_data.keys():
+                if trace['maapscopeid'] == scopeid:
+                    trace.append_data(dict(scope_data[scopeid]),
                                       Metadata(user,
                                                Metadata.get_call_location(),
                                                time.time()))
 
     with open(traced_json_output_path, "w") as f:
-        TracedDataJsonIO.export_traced_data_iterable_to_json(trace_data, f,
+        TracedDataJsonIO.export_traced_data_iterable_to_json(td_list, f,
                                                              pretty_print=True)
