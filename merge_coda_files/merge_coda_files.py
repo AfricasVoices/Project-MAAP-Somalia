@@ -142,7 +142,7 @@ if __name__ == '__main__':
 
     if has_yes_no:
         yes_no_key = '{}_yesno'.format(variable_name.lower())
-        yes_no_scheme = open_scheme('../coding_schemes/Yes_No.json')
+        yes_no_scheme = open_scheme('Yes_No.json')
         coding_schemes = {
             yes_no_key: yes_no_scheme,
             coded_key: code_scheme,
