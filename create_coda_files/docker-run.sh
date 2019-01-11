@@ -2,7 +2,7 @@
 
 set -e
 
-IMAGE_NAME=maap-get-coda-files
+IMAGE_NAME=maap-create-coda-files
 
 # Check that the correct number of arguments were provided.
 if [ $# -ne 10 ]; then
