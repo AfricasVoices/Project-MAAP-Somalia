@@ -50,7 +50,7 @@ def coda_id_to_strings(list_td, old_key, key_map, code_scheme):
                     Metadata(user, Metadata.get_call_location(), time.time())
                 )
 
-def choose_coda_importer(is_multi_coded):
+def import_from_coda(is_multi_coded):
     """
     Depending on if the CODA file being merged is has multiple codes chooses the
     import function from core data to merge it with.
@@ -131,12 +131,6 @@ if __name__ == '__main__':
     # Load the coding scheme
     code_scheme = open_scheme(coding_scheme_path)
 
-    # Merge manually coded survey Coda files into the cleaned dataset
-    #nr_label = CleaningUtils.make_cleaner_label(
-    #            code_scheme, 
-    #            code_scheme.get_code_with_control_code(Codes.NOT_REVIEWED),
-    #            Metadata.get_call_location()
-    #        )
     id_field = '{}_id'.format(variable_name.lower())
     coded_key = '{}_coded'.format(variable_name.lower())
 
@@ -150,12 +144,12 @@ if __name__ == '__main__':
         with open(coda_input_path, "r") as f:
             TracedDataCoda2IO.import_coda_2_to_traced_data_iterable(
                 user, list_td, id_field, {yes_no_key: yes_no_scheme}, f)
-        choose_coda_importer(is_multi_coded)
+        import_from_coda(is_multi_coded)
     else:   
         coding_schemes = {
             coded_key: code_scheme,
         }
-        choose_coda_importer(is_multi_coded)
+        import_from_coda(is_multi_coded)
 
     # Convert the old keys
     for old_key, code_scheme in coding_schemes.items():
