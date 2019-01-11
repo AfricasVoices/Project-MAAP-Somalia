@@ -52,6 +52,7 @@ if __name__ == "__main__":
 
     not_noise = [td for td in show_messages
                  if len(td[show_message_key]) > NUMBER_OF_CHARS_NOISE]
+    
     # Randomly select some messages to export for ICR
     random.seed(0)
     random.shuffle(not_noise)
