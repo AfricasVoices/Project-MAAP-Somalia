@@ -32,12 +32,40 @@ def coda_id_to_strings(list_td, old_key, key_map, code_scheme):
     :type code_scheme: Scheme
     '''
     new_key = key_map[old_key]
+
     for td in list_td:
         if old_key in td:
-            td.append_data(
-                {new_key: code_scheme.get_code_with_id(td[old_key]["CodeID"]).string_value},
-                Metadata(user, Metadata.get_call_location(), time.time())
-            )
+            if type(td[old_key]) is list:
+                list_code_strings = list()
+                for code in td[old_key]:
+                    code_string = code_scheme.get_code_with_id(code["CodeID"]).string_value
+                    list_code_strings.append(code_string)
+                td.append_data(
+                    {new_key: list_code_strings},
+                    Metadata(user, Metadata.get_call_location(), time.time())
+                )
+            else:
+                td.append_data(
+                    {new_key: code_scheme.get_code_with_id(td[old_key]["CodeID"]).string_value},
+                    Metadata(user, Metadata.get_call_location(), time.time())
+                )
+
+def choose_coda_importer(is_multi_coded):
+    """
+    Depending on if the CODA file being merged is has multiple codes chooses the
+    import function from core data to merge it with.
+    
+    :param is_multi_coded: Is this variable in the CODA file multi-coded
+    :type is_multi_coded: bool
+    """
+    if is_multi_coded:
+        with open(coda_input_path, "r") as f:
+            TracedDataCoda2IO.import_coda_2_to_traced_data_iterable_multi_coded(
+                user, list_td, id_field, {coded_key: code_scheme}, f)
+    else:
+        with open(coda_input_path, "r") as f:
+            TracedDataCoda2IO.import_coda_2_to_traced_data_iterable(
+                user, list_td, id_field, {coded_key: code_scheme}, f)
 
 KEY_MAP = {
     'needs_met_yesno_coded': 'needs_met_reason',
@@ -54,7 +82,7 @@ KEY_MAP = {
     'gender_coded': 'gender',
     'age_coded': 'age',
     'clan_coded': 'clan_identity',
-}    
+}
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -71,9 +99,13 @@ if __name__ == '__main__':
                         help='Path to Coda scheme file used on coda file')
     parser.add_argument('traced_json_output_path', metavar='json-output-path',
                         help='Path to a JSON file to write merged results to')
+    parser.add_argument(
+        'is_multi_coded', type=str, choices=['True','False'], metavar='is-multi-coded',
+        help='Is this variable multi-coded')
     # There is only one Yes/No coding scheme, it is used across this project
-    parser.add_argument('has_yes_no', metavar='has-yes-no',
-                        help='Is this variable a yes no question')
+    parser.add_argument(
+        'has_yes_no', type=str, choices=['True','False'], metavar='has-yes-no',
+        help='Is this variable a yes no question')
                         
     
     args = parser.parse_args()
@@ -83,12 +115,14 @@ if __name__ == '__main__':
     coda_input_path = args.coda_input_path
     coding_scheme_path = args.coding_scheme_path
     traced_json_output_path = args.traced_json_output_path
+    if args.is_multi_coded == 'True':
+        is_multi_coded = True
+    elif args.is_multi_coded == 'False':
+        is_multi_coded = False
     if args.has_yes_no == 'True':
         has_yes_no = True
     elif args.has_yes_no == 'False':
         has_yes_no = False
-    else:
-        raise Exception('<has-yes-no> only takes the strings "True" or "False"')
 
     # Load data from JSON file
     with open(json_input_path, 'r') as f:
@@ -111,20 +145,17 @@ if __name__ == '__main__':
         yes_no_scheme = open_scheme('../coding_schemes/Yes_No.json')
         coding_schemes = {
             yes_no_key: yes_no_scheme,
+            coded_key: code_scheme,
         }
         with open(coda_input_path, "r") as f:
             TracedDataCoda2IO.import_coda_2_to_traced_data_iterable(
                 user, list_td, id_field, {yes_no_key: yes_no_scheme}, f)
-        with open(coda_input_path, "r") as f:
-            TracedDataCoda2IO.import_coda_2_to_traced_data_iterable_multi_coded(
-                user, list_td, id_field, {coded_key: code_scheme}, f)
+        choose_coda_importer(is_multi_coded)
     else:   
         coding_schemes = {
             coded_key: code_scheme,
         }
-        with open(coda_input_path, "r") as f:
-            TracedDataCoda2IO.import_coda_2_to_traced_data_iterable_multi_coded(
-                user, list_td, id_field, coding_schemes, f)
+        choose_coda_importer(is_multi_coded)
 
     # Convert the old keys
     for old_key, code_scheme in coding_schemes.items():
