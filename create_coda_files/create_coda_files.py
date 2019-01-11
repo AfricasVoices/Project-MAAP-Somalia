@@ -101,7 +101,7 @@ if __name__ == '__main__':
     time_key = '{} (Time) - {}'.format(variable_name, flow_name)
     if has_yes_no:
         yes_no_key = '{}_yesno'.format(variable_name.lower())
-        yes_no_scheme = open_scheme('../coding_schemes/Yes_No.json')
+        yes_no_scheme = open_scheme('Yes_No.json')
         yes_no_cleaner = AUTO_CLEANERS['yes_no']
     else:
         yes_no_cleaner = None
