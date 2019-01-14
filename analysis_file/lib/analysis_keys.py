@@ -32,6 +32,7 @@ class AnalysisKeys(object):
                             matrix_d[new_key] = Codes.MATRIX_1
                             td.append_data(matrix_d, Metadata(user, Metadata.get_call_location(), time.time()))
                     else:
+                        # assumes that td[key] is a dict
                         new_key = prefix + td[key]
                         matrix_keys.add(new_key)
                         matrix_d[new_key] = Codes.MATRIX_1
