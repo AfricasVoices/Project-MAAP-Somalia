@@ -4,8 +4,8 @@ set -e
 
 # Check that the correct number of arguments were provided.
 if [ $# -ne 2 ]; then
-    echo "Usage: sh 03_concatenate_flows.sh <user> <data-root>"
-    echo "Concatenates the flows together"
+    echo "Usage: sh 03_maap_pdm_demogs.sh <user> <data-root>"
+    echo "Merges the flows together."
     exit
 fi
 
