@@ -20,6 +20,6 @@ mkdir -p "$DATA_ROOT/08 Analysis Files"
 
 
 echo "Creating analysis files"
-./docker-run.sh "$USER" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json"\
-    "$DATA_ROOT/08 Analysis Files/analysis.json" "$DATA_ROOT/08 Analysis Files/analysis_by_message.json"\
+./docker-run.sh "$USER" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json" \
+    "$DATA_ROOT/08 Analysis Files/analysis.json" "$DATA_ROOT/08 Analysis Files/analysis_by_message.json" \
     "$DATA_ROOT/08 Analysis Files/analysis_by_individual.json"

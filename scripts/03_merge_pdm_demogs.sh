@@ -25,4 +25,4 @@ DEMOGS="emergency_maap_new_demogs"
 echo "Merging PDM survey and demographics"
 
 ./docker-run.sh "$USER" "$INPUT_FOLDER/$PDM.json" "$INPUT_FOLDER/$DEMOGS.json" \
-    "$OUTPUT_FOLDER/maap_pdm_demogs.json" \
+    "$OUTPUT_FOLDER/maap_pdm_demogs.json"
