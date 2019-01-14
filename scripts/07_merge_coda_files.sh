@@ -5,7 +5,7 @@ set -e
 # Check that the correct number of arguments were provided.
 if [ $# -ne 8 ]; then
     echo "Usage: sh 07_merge_coda_files.sh <user> <data-root> <json-input-path> <variable-name> <coded-coda-file-path> <coding-scheme-path> <is-multi-coded> <has-yes-no>"
-    echo "Merges survey data with demog data into a single traceddata object"
+    echo "Merges coded CODA files into a single traceddata object"
     exit
 fi
 
