@@ -5,8 +5,8 @@ set -e
 IMAGE_NAME=maap-merge-coda-files
 
 # Check that the correct number of arguments were provided.
-if [ $# -ne 7 ]; then
-    echo "Usage: sh docker-run.sh <user> <json-input-path> <variable-name> <coda-input-path> <coding-scheme-path> <json-output-path> <has-yes-no>"
+if [ $# -ne 8 ]; then
+    echo "Usage: ./docker-run.sh <user> <json-input-path> <variable-name> <coda-input-path> <coding-scheme-path> <json-output-path> <is-multi-coded> <has-yes-no>"
     exit
 fi
 
@@ -17,13 +17,14 @@ VARIABLE_NAME=$3
 INPUT_CODA=$4
 CODING_SCHEME=$5
 OUTPUT_JSON=$6
-HAS_YES_NO=$7
+IS_MULTI_CODED=$7
+HAS_YES_NO=$8
 
 # Build an image for this pipeline stage.
 docker build -t "$IMAGE_NAME" .
 
 # Create a container from the image that was just built.
-container="$(docker container create --env USER="$USER" --env VARIABLE_NAME="$VARIABLE_NAME" --env HAS_YES_NO="$HAS_YES_NO" "$IMAGE_NAME")"
+container="$(docker container create --env USER="$USER" --env VARIABLE_NAME="$VARIABLE_NAME" --env IS_MULTI_CODED="$IS_MULTI_CODED" --env HAS_YES_NO="$HAS_YES_NO" "$IMAGE_NAME")"
 
 function finish {
     # Tear down the container when done.
