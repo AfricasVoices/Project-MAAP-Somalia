@@ -4,7 +4,7 @@ set -e
 
 # Check that the correct number of arguments were provided.
 if [ $# -ne 8 ]; then
-    echo "Usage: ./07_merge_coda_files.sh <user> <data-root> <json-input-path> <variable-name> <coded-coda-file-path> <coding-scheme-path> <is-multi-coded> <has-yes-no>"
+    echo "Usage: ./07_merge_coda_files.sh <user> <data-root> <json-input-path>"
     echo "Merges coded CODA files into a single traceddata object"
     exit
 fi
@@ -12,10 +12,6 @@ fi
 USER=$1
 DATA_ROOT=$2
 INPUT_JSON=$3
-VARIABLE_NAME=$4
-INPUT_CODA_PATH=$5
-CODING_SCHEME_PATH=$6True=$7
-HAS_YES_NO=$8
 
 
 cd "../merge_coda_files"
@@ -49,19 +45,19 @@ echo "Merging Needs Met"
     "../coding_schemes/Needs_Met_Yesno.json" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json"\
     "True" "True"
 
-echo "Merging Cash_Modality_Yesno"
+echo "Merging Cash Modality"
 ./docker-run.sh "$USER" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json"\
     "$Cash_Modality_Yesno" "$$DATA_ROOT/coded_coda_files/cash_modality_coded.json"\
     "../coding_schemes/Cash_Modality_Yesno.json" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json"\
     "True" "True"
 
-echo "Merging Community_Priorities CODA"
+echo "Merging Community Priorities"
 ./docker-run.sh "$USER" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json"\
-    "Community_Priorities" "$$DATA_ROOT/coded_coda_files/communtiry_priorities.json"\
+    "Community_Priorities" "$$DATA_ROOT/coded_coda_files/community_priorities.json"\
     "../coding_schemes/Community_Priorities.json" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json"\
     "True" "False"
 
-echo "Merging $Inclusion_Yes_No CODA"
+echo "Merging Inclusion"
 ./docker-run.sh "$USER" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json"\
     "Inclusion_Yes_No" "$$DATA_ROOT/coded_coda_files/inclusion_coded.json"\
     "../coding_schemes/Inclusion_Yes_No.json" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json"\
