@@ -4,7 +4,7 @@ set -e
 
 # Check that the correct number of arguments were provided.
 if [ $# -ne 3 ]; then
-    echo "Usage: sh 04_merge_scope.sh <user> <data-root> <scope-path>"
+    echo "Usage: ./04_merge_scope.sh <user> <data-root> <scope-path>"
     echo "Merges SCOPE data into the traced data object"
     echo "The scope-path is the path to the csv with scope data"
     exit

@@ -4,7 +4,7 @@ set -e
 
 # Check that the correct number of arguments were provided.
 if [ $# -ne 3 ]; then
-    echo "Usage: sh 05_create_icr_files.sh <user> <data-root> <variable-name>"
+    echo "Usage: ./05_create_icr_files.sh <user> <data-root> <variable-name>"
     echo "Creates a file for intercoder reliability"
     exit
 fi

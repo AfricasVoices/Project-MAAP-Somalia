@@ -3,7 +3,7 @@
 set -e
 
 if [ $# -ne 1 ]; then
-    echo "Usage: sh 00_create_uuid_table.sh <data-root>"
+    echo "Usage: ./00_create_uuid_table.sh <data-root>"
     echo "Writes an empty UUID table for phone numbers."
     exit
 fi

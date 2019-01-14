@@ -4,7 +4,7 @@ set -e
 
 # Check that the correct number of arguments were provided.
 if [ $# -ne 2 ]; then
-    echo "Usage: sh 03_maap_pdm_demogs.sh <user> <data-root>"
+    echo "Usage: ./03_maap_pdm_demogs.sh <user> <data-root>"
     echo "Merges the flows together."
     exit
 fi

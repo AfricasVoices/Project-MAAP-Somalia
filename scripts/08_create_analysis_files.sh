@@ -4,7 +4,7 @@ set -e
 
 # Check that the correct number of arguments were provided.
 if [ $# -ne 2 ]; then
-    echo "Usage: sh 08_create_analysis_files.sh <user> <data-root>"
+    echo "Usage: ./08_create_analysis_files.sh <user> <data-root>"
     echo "Creates the files for analysis"
     exit
 fi

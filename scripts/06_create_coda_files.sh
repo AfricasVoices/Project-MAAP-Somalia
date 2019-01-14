@@ -4,7 +4,7 @@ set -e
 
 # Check that the correct number of arguments were provided.
 if [ $# -ne 9 ]; then
-    echo "Usage: sh 06_create_coda_files.sh <user> <data-root> <json-input-path> <flow-name> <variable-name> <coding-scheme> <is-multi-coded> <has-yes-no> <auto-cleaner>"
+    echo "Usage: ./06_create_coda_files.sh <user> <data-root> <json-input-path> <flow-name> <variable-name> <coding-scheme> <is-multi-coded> <has-yes-no> <auto-cleaner>"
     echo "Merges survey data with demog data into a single traceddata object"
     exit
 fi
