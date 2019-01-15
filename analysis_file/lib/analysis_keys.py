@@ -25,9 +25,17 @@ class AnalysisKeys(object):
             matrix_d = dict()
             for key, prefix in keys_to_matrix.items():
                 if key in td:
-                    new_key = td[key] + prefix
-                    matrix_keys.add(new_key)
-                    matrix_d[new_key] = Codes.MATRIX_1
+                    if type(td[key]) is list:
+                        for code in td[key]:
+                            new_key = prefix + code
+                            matrix_keys.add(new_key)
+                            matrix_d[new_key] = Codes.MATRIX_1
+                            td.append_data(matrix_d, Metadata(user, Metadata.get_call_location(), time.time()))
+                    else:
+                        # assumes that td[key] is a dict
+                        new_key = prefix + td[key]
+                        matrix_keys.add(new_key)
+                        matrix_d[new_key] = Codes.MATRIX_1
             td.append_data(matrix_d, Metadata(user, Metadata.get_call_location(), time.time()))
 
         for td in list_td:
