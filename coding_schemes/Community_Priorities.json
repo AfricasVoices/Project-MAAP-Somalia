@@ -1,166 +1,165 @@
 {
-  "Codes": [
-    {
+  "Version": "0.0.0.1",
+  "Name": "Community_Priorities",
+  "SchemeID": "Scheme-8e75a890db95",
+  "Codes": [{
+      "NumericValue": 0,
       "CodeID": "code-2ad02ea52312",
       "CodeType": "Normal",
-      "DisplayText": "More aid",
-      "NumericValue": 0,
       "StringValue": "more_aid",
+      "DisplayText": "More aid",
       "VisibleInCoda": true
     },
     {
+      "DisplayText": "Need money",
+      "VisibleInCoda": true,
+      "NumericValue": 1,
       "CodeID": "code-941ae56d8da8",
       "CodeType": "Normal",
-      "DisplayText": "Need money",
-      "NumericValue": 1,
-      "StringValue": "need_money",
-      "VisibleInCoda": true
+      "StringValue": "need_money"
     },
     {
+      "DisplayText": "Need food",
+      "VisibleInCoda": true,
+      "NumericValue": 2,
       "CodeID": "code-442304b716b3",
       "CodeType": "Normal",
-      "DisplayText": "Need food",
-      "NumericValue": 2,
-      "StringValue": "need_food",
-      "VisibleInCoda": true
+      "StringValue": "need_food"
     },
     {
+      "NumericValue": 3,
       "CodeID": "code-d3ab9b0a5bfa",
       "CodeType": "Normal",
-      "DisplayText": "Business",
-      "NumericValue": 3,
       "StringValue": "business",
+      "DisplayText": "Business",
       "VisibleInCoda": true
     },
     {
+      "NumericValue": 4,
       "CodeID": "code-1926d320eefc",
       "CodeType": "Normal",
-      "DisplayText": "Rent",
-      "NumericValue": 4,
       "StringValue": "rent",
+      "DisplayText": "Rent",
       "VisibleInCoda": true
     },
     {
+      "NumericValue": 5,
       "CodeID": "code-afbfd852377f",
       "CodeType": "Normal",
-      "DisplayText": "Clothes",
-      "NumericValue": 5,
       "StringValue": "clothes",
+      "DisplayText": "Clothes",
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-5f4366f5814e",
-      "CodeType": "Normal",
-      "DisplayText": "Health services",
-      "NumericValue": 6,
       "StringValue": "health_services",
-      "VisibleInCoda": true
+      "DisplayText": "Health services",
+      "VisibleInCoda": true,
+      "NumericValue": 6,
+      "CodeID": "code-5f4366f5814e",
+      "CodeType": "Normal"
     },
     {
+      "NumericValue": 7,
       "CodeID": "code-4e83fd62f399",
       "CodeType": "Normal",
-      "DisplayText": "Education",
-      "NumericValue": 7,
       "StringValue": "education",
+      "DisplayText": "Education",
       "VisibleInCoda": true
     },
     {
+      "NumericValue": 8,
       "CodeID": "code-badd155c17c6",
       "CodeType": "Normal",
-      "DisplayText": "Water",
-      "NumericValue": 8,
       "StringValue": "water",
+      "DisplayText": "Water",
       "VisibleInCoda": true
     },
     {
       "CodeID": "code-4ea20494d5f6",
-      "CodeType": "Normal",
-      "DisplayText": "Continuation of cash transfer",
       "NumericValue": 9,
-      "StringValue": "continuation_of_cash_transfer",
-      "VisibleInCoda": true
-    },
-    {
-      "CodeID": "code-e7b6804d9d88",
       "CodeType": "Normal",
-      "DisplayText": "Peace",
-      "NumericValue": 10,
-      "StringValue": "peace",
+      "StringValue": "continuation_of_cash_transfer",
+      "DisplayText": "Continuation of cash transfer",
       "VisibleInCoda": true
     },
     {
+      "StringValue": "peace",
+      "DisplayText": "Peace",
+      "VisibleInCoda": true,
+      "NumericValue": 10,
+      "CodeID": "code-e7b6804d9d88",
+      "CodeType": "Normal"
+    },
+    {
+      "NumericValue": 11,
       "CodeID": "code-6ac2978c1b63",
       "CodeType": "Normal",
-      "DisplayText": "Employment",
-      "NumericValue": 11,
       "StringValue": "employment",
+      "DisplayText": "Employment",
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
+      "StringValue": "NA",
       "ControlCode": "NA",
       "DisplayText": "NA (missing)",
+      "VisibleInCoda": false,
       "NumericValue": -10,
-      "StringValue": "NA",
-      "VisibleInCoda": false
+      "CodeID": "code-NA-f93d3eb7"
     },
     {
+      "DisplayText": "NS (skip)",
+      "VisibleInCoda": false,
+      "NumericValue": -20,
       "CodeID": "code-NS-2c11b7c9",
       "CodeType": "Control",
-      "ControlCode": "NS",
-      "DisplayText": "NS (skip)",
-      "NumericValue": -20,
       "StringValue": "NS",
-      "VisibleInCoda": false
+      "ControlCode": "NS"
     },
     {
+      "VisibleInCoda": true,
+      "NumericValue": -30,
       "CodeID": "code-NC-42f1d983",
       "CodeType": "Control",
-      "ControlCode": "NC",
-      "DisplayText": "NC (not coded)",
-      "NumericValue": -30,
       "StringValue": "NC",
-      "VisibleInCoda": true
+      "ControlCode": "NC",
+      "DisplayText": "NC (not coded)"
     },
     {
+      "DisplayText": "NR (not reviewed)",
+      "VisibleInCoda": false,
+      "NumericValue": -40,
       "CodeID": "code-NR-5e3eee23",
       "CodeType": "Control",
-      "ControlCode": "NR",
-      "DisplayText": "NR (not reviewed)",
-      "NumericValue": -40,
       "StringValue": "NR",
-      "VisibleInCoda": false
+      "ControlCode": "NR"
     },
     {
+      "NumericValue": -50,
       "CodeID": "code-NIC-99631cb8",
       "CodeType": "Control",
+      "StringValue": "NIC",
       "ControlCode": "NIC",
       "DisplayText": "NIC (not internally consistent)",
-      "NumericValue": -50,
-      "StringValue": "NIC",
       "VisibleInCoda": false
     },
     {
+      "NumericValue": -90,
       "CodeID": "code-STOP-08b832a8",
       "CodeType": "Control",
+      "StringValue": "STOP",
       "ControlCode": "STOP",
       "DisplayText": "STOP",
-      "NumericValue": -90,
-      "StringValue": "STOP",
       "VisibleInCoda": true
     },
     {
+      "NumericValue": -100,
       "CodeID": "code-WS-adb25603b7af",
       "CodeType": "Control",
+      "StringValue": "WS",
       "ControlCode": "WS",
       "DisplayText": "WS (wrong scheme)",
-      "NumericValue": -100,
-      "StringValue": "WS",
       "VisibleInCoda": true
     }
-  ],
-  "Name": "Community_Priorities",
-  "SchemeID": "Scheme-8e75a890db95",
-  "Version": "0.0.0.1"
+  ]
 }

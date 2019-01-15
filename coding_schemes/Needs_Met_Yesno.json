@@ -1,150 +1,165 @@
 {
-  "Codes": [
-    {
-      "CodeID": "code-fd258552ed2d",
-      "CodeType": "Normal",
+  "Version": "0.0.0.1",
+  "Name": "Needs_Met_Yesno",
+  "SchemeID": "Scheme-50759ccbd6c4",
+  "Codes": [{
       "DisplayText": "Education",
+      "VisibleInCoda": true,
       "NumericValue": 0,
-      "StringValue": "education",
-      "VisibleInCoda": true
+      "CodeID": "code-ceafac1f0bb3",
+      "CodeType": "Normal",
+      "StringValue": "education"
     },
     {
-      "CodeID": "code-4c413eb66373",
-      "CodeType": "Normal",
       "DisplayText": "Food",
+      "VisibleInCoda": true,
       "NumericValue": 1,
-      "StringValue": "food",
-      "VisibleInCoda": true
+      "CodeID": "code-fd69308ec5d8",
+      "CodeType": "Normal",
+      "StringValue": "food"
     },
     {
-      "CodeID": "code-0ffabcb654a2",
-      "CodeType": "Normal",
-      "DisplayText": "Children's needs",
       "NumericValue": 2,
+      "CodeID": "code-909afa9f9b64",
+      "CodeType": "Normal",
       "StringValue": "childrens_needs",
+      "DisplayText": "Children's needs",
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-75388ec045c9",
-      "CodeType": "Normal",
       "DisplayText": "Family needs",
+      "VisibleInCoda": true,
       "NumericValue": 3,
-      "StringValue": "family_needs",
-      "VisibleInCoda": true
+      "CodeID": "code-1f7b19de66bb",
+      "CodeType": "Normal",
+      "StringValue": "family_needs"
     },
     {
-      "CodeID": "code-f02950e53ab4",
-      "CodeType": "Normal",
-      "DisplayText": "Amount not sufficient",
+      "DisplayText": "Health",
+      "VisibleInCoda": true,
       "NumericValue": 4,
-      "StringValue": "amount_not_sufficient",
-      "VisibleInCoda": true
+      "CodeID": "code-bdc2ecc6e73b",
+      "CodeType": "Normal",
+      "StringValue": "health"
     },
     {
-      "CodeID": "code-9b721f81a356",
-      "CodeType": "Normal",
-      "DisplayText": "Closure of roads",
+      "StringValue": "self_employment",
+      "DisplayText": "Self Employment",
+      "VisibleInCoda": true,
       "NumericValue": 5,
-      "StringValue": "closure_of_roads",
-      "VisibleInCoda": true
+      "CodeID": "code-6f48b19f6869",
+      "CodeType": "Normal"
     },
     {
-      "CodeID": "code-f5761b1b4f88",
-      "CodeType": "Normal",
-      "DisplayText": "Drought",
+      "DisplayText": "Amount not sufficient",
+      "VisibleInCoda": true,
       "NumericValue": 6,
-      "StringValue": "drought",
-      "VisibleInCoda": true
+      "CodeID": "code-57c1877ddbb1",
+      "CodeType": "Normal",
+      "StringValue": "amount_not_sufficient"
     },
     {
-      "CodeID": "code-56d228871561",
-      "CodeType": "Normal",
-      "DisplayText": "Aid not received",
+      "StringValue": "closure_of_roads",
+      "DisplayText": "Closure of roads",
+      "VisibleInCoda": true,
       "NumericValue": 7,
-      "StringValue": "aid_not_received",
-      "VisibleInCoda": true
+      "CodeID": "code-d91c93baa9b5",
+      "CodeType": "Normal"
     },
     {
-      "CodeID": "code-580d2245793a",
-      "CodeType": "Normal",
-      "DisplayText": "Access to aid",
+      "DisplayText": "Drought",
+      "VisibleInCoda": true,
       "NumericValue": 8,
-      "StringValue": "access_to_aid",
-      "VisibleInCoda": true
-    },
-    {
-      "CodeID": "code-716f06beb707",
+      "CodeID": "code-98de45fc1271",
       "CodeType": "Normal",
-      "DisplayText": "Ambivalent",
+      "StringValue": "drought"
+    },
+    {
       "NumericValue": 9,
-      "StringValue": "ambivalent",
+      "CodeID": "code-360f4f7284a9",
+      "CodeType": "Normal",
+      "StringValue": "aid_not_received",
+      "DisplayText": "Aid not received",
       "VisibleInCoda": true
     },
     {
+      "StringValue": "access_to_aid",
+      "DisplayText": "Access to aid",
+      "VisibleInCoda": true,
+      "NumericValue": 10,
+      "CodeID": "code-f196d8250130",
+      "CodeType": "Normal"
+    },
+    {
+      "NumericValue": 11,
+      "CodeID": "code-dff5cc037777",
+      "CodeType": "Normal",
+      "StringValue": "need_investment",
+      "DisplayText": "Need Investment",
+      "VisibleInCoda": true
+    },
+    {
+      "DisplayText": "NA (missing)",
+      "VisibleInCoda": false,
+      "NumericValue": -10,
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
-      "ControlCode": "NA",
-      "DisplayText": "NA (missing)",
-      "NumericValue": -10,
       "StringValue": "NA",
-      "VisibleInCoda": false
+      "ControlCode": "NA"
     },
     {
+      "NumericValue": -20,
       "CodeID": "code-NS-2c11b7c9",
       "CodeType": "Control",
+      "StringValue": "NS",
       "ControlCode": "NS",
       "DisplayText": "NS (skip)",
-      "NumericValue": -20,
-      "StringValue": "NS",
       "VisibleInCoda": false
     },
     {
-      "CodeID": "code-NC-42f1d983",
-      "CodeType": "Control",
       "ControlCode": "NC",
       "DisplayText": "NC (not coded)",
+      "VisibleInCoda": true,
       "NumericValue": -30,
-      "StringValue": "NC",
-      "VisibleInCoda": true
+      "CodeID": "code-NC-42f1d983",
+      "CodeType": "Control",
+      "StringValue": "NC"
     },
     {
+      "DisplayText": "NR (not reviewed)",
+      "VisibleInCoda": false,
+      "NumericValue": -40,
       "CodeID": "code-NR-5e3eee23",
       "CodeType": "Control",
-      "ControlCode": "NR",
-      "DisplayText": "NR (not reviewed)",
-      "NumericValue": -40,
       "StringValue": "NR",
-      "VisibleInCoda": false
+      "ControlCode": "NR"
     },
     {
+      "VisibleInCoda": false,
+      "NumericValue": -50,
       "CodeID": "code-NIC-99631cb8",
       "CodeType": "Control",
-      "ControlCode": "NIC",
-      "DisplayText": "NIC (not internally consistent)",
-      "NumericValue": -50,
       "StringValue": "NIC",
-      "VisibleInCoda": false
+      "ControlCode": "NIC",
+      "DisplayText": "NIC (not internally consistent)"
     },
     {
-      "CodeID": "code-STOP-08b832a8",
-      "CodeType": "Control",
       "ControlCode": "STOP",
       "DisplayText": "STOP",
+      "VisibleInCoda": true,
       "NumericValue": -90,
-      "StringValue": "STOP",
-      "VisibleInCoda": true
+      "CodeID": "code-STOP-08b832a8",
+      "CodeType": "Control",
+      "StringValue": "STOP"
     },
     {
+      "DisplayText": "WS (wrong scheme)",
+      "VisibleInCoda": true,
+      "NumericValue": -100,
       "CodeID": "code-WS-adb25603b7af",
       "CodeType": "Control",
-      "ControlCode": "WS",
-      "DisplayText": "WS (wrong scheme)",
-      "NumericValue": -100,
       "StringValue": "WS",
-      "VisibleInCoda": true
+      "ControlCode": "WS"
     }
-  ],
-  "Name": "Needs_Met_Yesno",
-  "SchemeID": "Scheme-3c0a4b6b9953",
-  "Version": "0.0.0.1"
+  ]
 }

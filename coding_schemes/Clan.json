@@ -1,150 +1,189 @@
 {
-  "Codes": [
-    {
+  "Name": "Clan",
+  "Codes": [{
+      "NumericValue": 0,
       "CodeID": "code-cec6417b925a",
       "CodeType": "Normal",
-      "DisplayText": "Digil",
-      "NumericValue": 0,
       "StringValue": "digil",
+      "DisplayText": "Digil",
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-1d1df67dc4dd",
       "CodeType": "Normal",
-      "DisplayText": "Mirifle",
-      "NumericValue": 1,
       "StringValue": "mirifle",
-      "VisibleInCoda": true
+      "DisplayText": "Mirifle",
+      "VisibleInCoda": true,
+      "NumericValue": 1,
+      "CodeID": "code-1d1df67dc4dd"
     },
     {
-      "CodeID": "code-d17887757c1f",
-      "CodeType": "Normal",
-      "DisplayText": "Ajuuran",
-      "NumericValue": 2,
       "StringValue": "ajuuran",
-      "VisibleInCoda": true
+      "DisplayText": "Ajuuran",
+      "VisibleInCoda": true,
+      "NumericValue": 2,
+      "CodeID": "code-d17887757c1f",
+      "CodeType": "Normal"
     },
     {
+      "NumericValue": 3,
       "CodeID": "code-160755ca2f2c",
       "CodeType": "Normal",
-      "DisplayText": "Marehan/Mareexan",
-      "NumericValue": 3,
       "StringValue": "marehan_mareexan",
+      "DisplayText": "Marehan/Mareexan",
       "VisibleInCoda": true
     },
     {
+      "NumericValue": 4,
       "CodeID": "code-5ff1e4c54b47",
       "CodeType": "Normal",
-      "DisplayText": "Ogaden",
-      "NumericValue": 4,
       "StringValue": "ogaden",
+      "DisplayText": "Ogaden",
       "VisibleInCoda": true
     },
     {
+      "DisplayText": "Gaboye",
+      "VisibleInCoda": true,
+      "NumericValue": 5,
       "CodeID": "code-b87391f19b72",
       "CodeType": "Normal",
-      "DisplayText": "Gaboye",
-      "NumericValue": 5,
-      "StringValue": "gaboye",
-      "VisibleInCoda": true
+      "StringValue": "gaboye"
     },
     {
+      "DisplayText": "Kamiisli",
+      "VisibleInCoda": true,
+      "NumericValue": 6,
       "CodeID": "code-ded1e52c6adb",
       "CodeType": "Normal",
-      "DisplayText": "Kamiisli",
-      "NumericValue": 6,
-      "StringValue": "kamiisli",
-      "VisibleInCoda": true
+      "StringValue": "kamiisli"
     },
     {
+      "NumericValue": 7,
       "CodeID": "code-23174e357a5a",
       "CodeType": "Normal",
+      "StringValue": "hawiye_unspecified",
       "DisplayText": "Hawiye - unspecified",
-      "NumericValue": 7,
-      "StringValue": "hawiye__unspecified",
       "VisibleInCoda": true
     },
     {
+      "DisplayText": "Darood - unspecified",
+      "VisibleInCoda": true,
+      "NumericValue": 8,
       "CodeID": "code-3f8872085d98",
       "CodeType": "Normal",
-      "DisplayText": "Darood - unspecified",
-      "NumericValue": 8,
-      "StringValue": "darood__unspecified",
-      "VisibleInCoda": true
+      "StringValue": "darood_unspecified"
     },
     {
+      "NumericValue": 9,
       "CodeID": "code-be868d6bb655",
       "CodeType": "Normal",
+      "StringValue": "rahanweyn_unspecified",
       "DisplayText": "Rahanweyn - unspecified",
-      "NumericValue": 9,
-      "StringValue": "rahanweyn__unspecified",
       "VisibleInCoda": true
     },
     {
+      "CodeID": "code-ce051a3d1a1a",
+      "NumericValue": 10,
+      "CodeType": "Normal",
+      "StringValue": "Dir",
+      "DisplayText": "Dir",
+      "VisibleInCoda": true
+    },
+    {
+      "DisplayText": "Jijelo",
+      "VisibleInCoda": true,
+      "NumericValue": 11,
+      "CodeID": "code-be868d6bb677",
+      "CodeType": "Normal",
+      "StringValue": "Jijelo"
+    },
+    {
+      "DisplayText": "Dagoodi",
+      "VisibleInCoda": true,
+      "NumericValue": 12,
+      "CodeID": "code-be878d6cb677",
+      "CodeType": "Normal",
+      "StringValue": "Dagoodi"
+    },
+    {
+      "DisplayText": "Majerten",
+      "VisibleInCoda": true,
+      "NumericValue": 13,
+      "CodeID": "code-be878d6cd697",
+      "CodeType": "Normal",
+      "StringValue": "Majerten"
+    },
+    {
+      "NumericValue": 14,
+      "CodeID": "code-bc899d6cf667",
+      "CodeType": "Normal",
+      "StringValue": "minority_clans",
+      "DisplayText": "Minority Clans",
+      "VisibleInCoda": true
+    },
+    {
+      "DisplayText": "NA (missing)",
+      "VisibleInCoda": false,
+      "NumericValue": -10,
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
-      "ControlCode": "NA",
-      "DisplayText": "NA (missing)",
-      "NumericValue": -10,
       "StringValue": "NA",
-      "VisibleInCoda": false
+      "ControlCode": "NA"
     },
     {
+      "NumericValue": -20,
       "CodeID": "code-NS-2c11b7c9",
       "CodeType": "Control",
+      "StringValue": "NS",
       "ControlCode": "NS",
       "DisplayText": "NS (skip)",
-      "NumericValue": -20,
-      "StringValue": "NS",
       "VisibleInCoda": false
     },
     {
-      "CodeID": "code-NC-42f1d983",
-      "CodeType": "Control",
+      "StringValue": "NC",
       "ControlCode": "NC",
       "DisplayText": "NC (not coded)",
+      "VisibleInCoda": true,
       "NumericValue": -30,
-      "StringValue": "NC",
-      "VisibleInCoda": true
+      "CodeID": "code-NC-42f1d983",
+      "CodeType": "Control"
     },
     {
-      "CodeID": "code-NR-5e3eee23",
-      "CodeType": "Control",
       "ControlCode": "NR",
       "DisplayText": "NR (not reviewed)",
+      "VisibleInCoda": false,
       "NumericValue": -40,
-      "StringValue": "NR",
-      "VisibleInCoda": false
+      "CodeID": "code-NR-5e3eee23",
+      "CodeType": "Control",
+      "StringValue": "NR"
     },
     {
-      "CodeID": "code-NIC-99631cb8",
-      "CodeType": "Control",
+      "StringValue": "NIC",
       "ControlCode": "NIC",
       "DisplayText": "NIC (not internally consistent)",
+      "VisibleInCoda": false,
       "NumericValue": -50,
-      "StringValue": "NIC",
-      "VisibleInCoda": false
+      "CodeID": "code-NIC-99631cb8",
+      "CodeType": "Control"
     },
     {
-      "CodeID": "code-STOP-08b832a8",
-      "CodeType": "Control",
       "ControlCode": "STOP",
       "DisplayText": "STOP",
+      "VisibleInCoda": true,
+      "CodeID": "code-STOP-08b832a8",
       "NumericValue": -90,
-      "StringValue": "STOP",
-      "VisibleInCoda": true
+      "CodeType": "Control",
+      "StringValue": "STOP"
     },
     {
-      "CodeID": "code-WS-adb25603b7af",
-      "CodeType": "Control",
       "ControlCode": "WS",
       "DisplayText": "WS (wrong scheme)",
+      "VisibleInCoda": true,
       "NumericValue": -100,
-      "StringValue": "WS",
-      "VisibleInCoda": true
+      "CodeID": "code-WS-adb25603b7af",
+      "CodeType": "Control",
+      "StringValue": "WS"
     }
   ],
-  "Name": "Clan",
   "SchemeID": "Scheme-dc8ad4b9f9f2",
   "Version": "0.0.0.1"
 }

@@ -1,174 +1,165 @@
 {
-  "Codes": [
-    {
-      "CodeID": "code-08d7d1c2ac59",
-      "CodeType": "Normal",
-      "DisplayText": "Prefer current modality",
-      "NumericValue": 0,
+  "Name": "Cash_Modality_Yesno",
+  "SchemeID": "Scheme-d24128c4c5c7",
+  "Codes": [{
       "StringValue": "prefer_current_modality",
-      "VisibleInCoda": true
+      "DisplayText": "Prefer current modality",
+      "VisibleInCoda": true,
+      "NumericValue": 0,
+      "CodeID": "code-08d7d1c2ac59",
+      "CodeType": "Normal"
     },
     {
-      "CodeID": "code-bdf0e256d2fe",
-      "CodeType": "Normal",
-      "DisplayText": "Safety",
-      "NumericValue": 1,
       "StringValue": "safety",
-      "VisibleInCoda": true
+      "DisplayText": "Safety",
+      "VisibleInCoda": true,
+      "NumericValue": 1,
+      "CodeID": "code-bdf0e256d2fe",
+      "CodeType": "Normal"
     },
     {
+      "DisplayText": "Access and use mobile phones",
+      "VisibleInCoda": true,
+      "NumericValue": 2,
       "CodeID": "code-d41f6f71709d",
       "CodeType": "Normal",
-      "DisplayText": "Access and use mobile phones",
-      "NumericValue": 2,
-      "StringValue": "access_and_use_mobile_phones",
-      "VisibleInCoda": true
+      "StringValue": "access_and_use_mobile_phones"
     },
     {
-      "CodeID": "code-f8eaff57f56f",
-      "CodeType": "Normal",
-      "DisplayText": "Easy access",
-      "NumericValue": 3,
       "StringValue": "easy_access",
-      "VisibleInCoda": true
+      "DisplayText": "Easy access",
+      "VisibleInCoda": true,
+      "NumericValue": 3,
+      "CodeID": "code-f8eaff57f56f",
+      "CodeType": "Normal"
     },
     {
+      "NumericValue": 4,
       "CodeID": "code-a83b56d23619",
       "CodeType": "Normal",
-      "DisplayText": "Inclusive access",
-      "NumericValue": 4,
       "StringValue": "inclusive_access",
+      "DisplayText": "Inclusive access",
       "VisibleInCoda": true
     },
     {
+      "VisibleInCoda": true,
+      "NumericValue": 5,
       "CodeID": "code-813568c5bf22",
       "CodeType": "Normal",
-      "DisplayText": "Prevents corruption",
-      "NumericValue": 5,
       "StringValue": "prevents_corruption",
-      "VisibleInCoda": true
+      "DisplayText": "Prevents corruption"
     },
     {
+      "VisibleInCoda": true,
+      "NumericValue": 6,
       "CodeID": "code-502e618cfe21",
       "CodeType": "Normal",
-      "DisplayText": "Long queues",
-      "NumericValue": 6,
       "StringValue": "long_queues",
-      "VisibleInCoda": true
+      "DisplayText": "Long queues"
     },
     {
+      "VisibleInCoda": true,
+      "NumericValue": 7,
       "CodeID": "code-79e628dc8c60",
       "CodeType": "Normal",
-      "DisplayText": "Security concerns",
-      "NumericValue": 7,
       "StringValue": "security_concerns",
-      "VisibleInCoda": true
+      "DisplayText": "Security concerns"
     },
     {
+      "DisplayText": "Delays in the program",
+      "VisibleInCoda": true,
+      "NumericValue": 8,
       "CodeID": "code-b879bda90a5c",
       "CodeType": "Normal",
-      "DisplayText": "Delays in the program",
-      "NumericValue": 8,
-      "StringValue": "delays_in_the_program",
-      "VisibleInCoda": true
+      "StringValue": "delays_in_the_program"
     },
     {
+      "VisibleInCoda": true,
+      "NumericValue": 9,
       "CodeID": "code-f459bd4d31d3",
       "CodeType": "Normal",
-      "DisplayText": "Distance",
-      "NumericValue": 9,
       "StringValue": "distance",
-      "VisibleInCoda": true
+      "DisplayText": "Distance"
     },
     {
-      "CodeID": "code-f67dae2bd4c2",
-      "CodeType": "Normal",
-      "DisplayText": "Ambivalent",
-      "NumericValue": 10,
-      "StringValue": "ambivalent",
-      "VisibleInCoda": true
-    },
-    {
-      "CodeID": "code-564016a9184b",
-      "CodeType": "Normal",
-      "DisplayText": "Other",
-      "NumericValue": 11,
       "StringValue": "other",
-      "VisibleInCoda": true
+      "DisplayText": "Other",
+      "VisibleInCoda": true,
+      "NumericValue": 10,
+      "CodeID": "code-564016a9184b",
+      "CodeType": "Normal"
     },
     {
+      "DisplayText": "Shelter",
+      "VisibleInCoda": true,
+      "NumericValue": 11,
       "CodeID": "code-beb71ed70ac8",
       "CodeType": "Normal",
-      "DisplayText": "Shelter",
-      "NumericValue": 12,
-      "StringValue": "shelter",
-      "VisibleInCoda": true
+      "StringValue": "shelter"
     },
     {
-      "CodeID": "code-NA-f93d3eb7",
-      "CodeType": "Control",
+      "StringValue": "NA",
       "ControlCode": "NA",
       "DisplayText": "NA (missing)",
+      "VisibleInCoda": false,
       "NumericValue": -10,
-      "StringValue": "NA",
-      "VisibleInCoda": false
+      "CodeID": "code-NA-f93d3eb7",
+      "CodeType": "Control"
     },
     {
+      "VisibleInCoda": false,
+      "NumericValue": -20,
       "CodeID": "code-NS-2c11b7c9",
       "CodeType": "Control",
-      "ControlCode": "NS",
-      "DisplayText": "NS (skip)",
-      "NumericValue": -20,
       "StringValue": "NS",
-      "VisibleInCoda": false
+      "ControlCode": "NS",
+      "DisplayText": "NS (skip)"
     },
     {
       "CodeID": "code-NC-42f1d983",
+      "NumericValue": -30,
       "CodeType": "Control",
+      "StringValue": "NC",
       "ControlCode": "NC",
       "DisplayText": "NC (not coded)",
-      "NumericValue": -30,
-      "StringValue": "NC",
       "VisibleInCoda": true
     },
     {
       "CodeID": "code-NR-5e3eee23",
+      "NumericValue": -40,
       "CodeType": "Control",
+      "StringValue": "NR",
       "ControlCode": "NR",
       "DisplayText": "NR (not reviewed)",
-      "NumericValue": -40,
-      "StringValue": "NR",
       "VisibleInCoda": false
     },
     {
+      "NumericValue": -50,
       "CodeID": "code-NIC-99631cb8",
       "CodeType": "Control",
+      "StringValue": "NIC",
       "ControlCode": "NIC",
       "DisplayText": "NIC (not internally consistent)",
-      "NumericValue": -50,
-      "StringValue": "NIC",
       "VisibleInCoda": false
     },
     {
+      "NumericValue": -90,
       "CodeID": "code-STOP-08b832a8",
       "CodeType": "Control",
+      "StringValue": "STOP",
       "ControlCode": "STOP",
       "DisplayText": "STOP",
-      "NumericValue": -90,
-      "StringValue": "STOP",
       "VisibleInCoda": true
     },
     {
+      "VisibleInCoda": true,
+      "NumericValue": -100,
       "CodeID": "code-WS-adb25603b7af",
       "CodeType": "Control",
-      "ControlCode": "WS",
-      "DisplayText": "WS (wrong scheme)",
-      "NumericValue": -100,
       "StringValue": "WS",
-      "VisibleInCoda": true
+      "ControlCode": "WS",
+      "DisplayText": "WS (wrong scheme)"
     }
   ],
-  "Name": "Cash_Modality_Yesno",
-  "SchemeID": "Scheme-d24128c4c5c7",
   "Version": "0.0.0.1"
 }

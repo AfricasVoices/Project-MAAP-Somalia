@@ -1,94 +1,93 @@
 {
-  "Codes": [
-    {
-      "CodeID": "code-92e51414cc52",
-      "CodeType": "Normal",
-      "DisplayText": "Opportunity to give opinions",
-      "NumericValue": 0,
+  "Codes": [{
       "StringValue": "opportunity_to_give_opinions",
-      "VisibleInCoda": true
+      "DisplayText": "Opportunity to give opinions",
+      "VisibleInCoda": true,
+      "NumericValue": 0,
+      "CodeID": "code-92e51414cc52",
+      "CodeType": "Normal"
     },
     {
+      "DisplayText": "Not received cash",
+      "VisibleInCoda": true,
+      "NumericValue": 1,
       "CodeID": "code-2d25914c486f",
       "CodeType": "Normal",
-      "DisplayText": "Not received cash",
-      "NumericValue": 1,
-      "StringValue": "not_received_cash",
-      "VisibleInCoda": true
+      "StringValue": "not_received_cash"
     },
     {
+      "DisplayText": "Lack of information",
+      "VisibleInCoda": true,
+      "NumericValue": 2,
       "CodeID": "code-facdc6ceeafc",
       "CodeType": "Normal",
-      "DisplayText": "Lack of information",
-      "NumericValue": 2,
-      "StringValue": "lack_of_information",
-      "VisibleInCoda": true
+      "StringValue": "lack_of_information"
     },
     {
-      "CodeID": "code-NA-f93d3eb7",
-      "CodeType": "Control",
       "ControlCode": "NA",
       "DisplayText": "NA (missing)",
+      "VisibleInCoda": false,
       "NumericValue": -10,
-      "StringValue": "NA",
-      "VisibleInCoda": false
+      "CodeID": "code-NA-f93d3eb7",
+      "CodeType": "Control",
+      "StringValue": "NA"
     },
     {
-      "CodeID": "code-NS-2c11b7c9",
-      "CodeType": "Control",
       "ControlCode": "NS",
       "DisplayText": "NS (skip)",
+      "VisibleInCoda": false,
       "NumericValue": -20,
-      "StringValue": "NS",
-      "VisibleInCoda": false
+      "CodeID": "code-NS-2c11b7c9",
+      "CodeType": "Control",
+      "StringValue": "NS"
     },
     {
-      "CodeID": "code-NC-42f1d983",
-      "CodeType": "Control",
+      "StringValue": "NC",
       "ControlCode": "NC",
       "DisplayText": "NC (not coded)",
+      "VisibleInCoda": true,
       "NumericValue": -30,
-      "StringValue": "NC",
-      "VisibleInCoda": true
+      "CodeID": "code-NC-42f1d983",
+      "CodeType": "Control"
     },
     {
+      "NumericValue": -40,
       "CodeID": "code-NR-5e3eee23",
       "CodeType": "Control",
+      "StringValue": "NR",
       "ControlCode": "NR",
       "DisplayText": "NR (not reviewed)",
-      "NumericValue": -40,
-      "StringValue": "NR",
       "VisibleInCoda": false
     },
     {
+      "DisplayText": "NIC (not internally consistent)",
+      "VisibleInCoda": false,
+      "NumericValue": -50,
       "CodeID": "code-NIC-99631cb8",
       "CodeType": "Control",
-      "ControlCode": "NIC",
-      "DisplayText": "NIC (not internally consistent)",
-      "NumericValue": -50,
       "StringValue": "NIC",
-      "VisibleInCoda": false
+      "ControlCode": "NIC"
     },
     {
+      "VisibleInCoda": true,
+      "NumericValue": -90,
       "CodeID": "code-STOP-08b832a8",
       "CodeType": "Control",
-      "ControlCode": "STOP",
-      "DisplayText": "STOP",
-      "NumericValue": -90,
       "StringValue": "STOP",
-      "VisibleInCoda": true
+      "ControlCode": "STOP",
+      "DisplayText": "STOP"
     },
     {
-      "CodeID": "code-WS-adb25603b7af",
       "CodeType": "Control",
+      "StringValue": "WS",
       "ControlCode": "WS",
       "DisplayText": "WS (wrong scheme)",
-      "NumericValue": -100,
-      "StringValue": "WS",
-      "VisibleInCoda": true
+      "VisibleInCoda": true,
+      "CodeID": "code-WS-adb25603b7af",
+      "NumericValue": -100
     }
   ],
-  "Name": "Inclusion_Yes_No",
   "SchemeID": "Scheme-2c094ee33219",
-  "Version": "0.0.0.1"
+  "Version": "0.0.0.1",
+  "Name": "Inclusion_Yes_No"
 }
