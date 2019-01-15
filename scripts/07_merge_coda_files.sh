@@ -47,19 +47,19 @@ echo "Merging Needs Met"
 
 echo "Merging Cash Modality"
 ./docker-run.sh "$USER" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json" \
-    "$Cash_Modality_Yesno" "$$DATA_ROOT/coded_coda_files/cash_modality_coded.json" \
+    "Cash_Modality_Yesno" "$DATA_ROOT/coded_coda_files/cash_modality_coded.json" \
     "../coding_schemes/Cash_Modality_Yesno.json" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json" \
     "True" "True"
 
 echo "Merging Community Priorities"
 ./docker-run.sh "$USER" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json" \
-    "Community_Priorities" "$$DATA_ROOT/coded_coda_files/community_priorities_coded.json" \
+    "Community_Priorities" "$DATA_ROOT/coded_coda_files/community_priorities_coded.json" \
     "../coding_schemes/Community_Priorities.json" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json" \
     "True" "False"
 
 echo "Merging Inclusion"
 ./docker-run.sh "$USER" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json" \
-    "Inclusion_Yes_No" "$$DATA_ROOT/coded_coda_files/inclusion_coded.json" \
+    "Inclusion_Yes_No" "$DATA_ROOT/coded_coda_files/inclusion_coded.json" \
     "../coding_schemes/Inclusion_Yes_No.json" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json" \
     "True" "True"
 
