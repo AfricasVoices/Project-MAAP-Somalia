@@ -1,0 +1,165 @@
+{
+  "Name": "Cash_Modality_Yesno",
+  "SchemeID": "Scheme-d24128c4c5c7",
+  "Codes": [{
+      "StringValue": "prefer_current_modality",
+      "DisplayText": "Prefer current modality",
+      "VisibleInCoda": true,
+      "NumericValue": 0,
+      "CodeID": "code-08d7d1c2ac59",
+      "CodeType": "Normal"
+    },
+    {
+      "StringValue": "safety",
+      "DisplayText": "Safety",
+      "VisibleInCoda": true,
+      "NumericValue": 1,
+      "CodeID": "code-bdf0e256d2fe",
+      "CodeType": "Normal"
+    },
+    {
+      "DisplayText": "Access and use mobile phones",
+      "VisibleInCoda": true,
+      "NumericValue": 2,
+      "CodeID": "code-d41f6f71709d",
+      "CodeType": "Normal",
+      "StringValue": "access_and_use_mobile_phones"
+    },
+    {
+      "StringValue": "easy_access",
+      "DisplayText": "Easy access",
+      "VisibleInCoda": true,
+      "NumericValue": 3,
+      "CodeID": "code-f8eaff57f56f",
+      "CodeType": "Normal"
+    },
+    {
+      "NumericValue": 4,
+      "CodeID": "code-a83b56d23619",
+      "CodeType": "Normal",
+      "StringValue": "inclusive_access",
+      "DisplayText": "Inclusive access",
+      "VisibleInCoda": true
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 5,
+      "CodeID": "code-813568c5bf22",
+      "CodeType": "Normal",
+      "StringValue": "prevents_corruption",
+      "DisplayText": "Prevents corruption"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 6,
+      "CodeID": "code-502e618cfe21",
+      "CodeType": "Normal",
+      "StringValue": "long_queues",
+      "DisplayText": "Long queues"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 7,
+      "CodeID": "code-79e628dc8c60",
+      "CodeType": "Normal",
+      "StringValue": "security_concerns",
+      "DisplayText": "Security concerns"
+    },
+    {
+      "DisplayText": "Delays in the program",
+      "VisibleInCoda": true,
+      "NumericValue": 8,
+      "CodeID": "code-b879bda90a5c",
+      "CodeType": "Normal",
+      "StringValue": "delays_in_the_program"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": 9,
+      "CodeID": "code-f459bd4d31d3",
+      "CodeType": "Normal",
+      "StringValue": "distance",
+      "DisplayText": "Distance"
+    },
+    {
+      "StringValue": "other",
+      "DisplayText": "Other",
+      "VisibleInCoda": true,
+      "NumericValue": 10,
+      "CodeID": "code-564016a9184b",
+      "CodeType": "Normal"
+    },
+    {
+      "DisplayText": "Shelter",
+      "VisibleInCoda": true,
+      "NumericValue": 11,
+      "CodeID": "code-beb71ed70ac8",
+      "CodeType": "Normal",
+      "StringValue": "shelter"
+    },
+    {
+      "StringValue": "NA",
+      "ControlCode": "NA",
+      "DisplayText": "NA (missing)",
+      "VisibleInCoda": false,
+      "NumericValue": -10,
+      "CodeID": "code-NA-f93d3eb7",
+      "CodeType": "Control"
+    },
+    {
+      "VisibleInCoda": false,
+      "NumericValue": -20,
+      "CodeID": "code-NS-2c11b7c9",
+      "CodeType": "Control",
+      "StringValue": "NS",
+      "ControlCode": "NS",
+      "DisplayText": "NS (skip)"
+    },
+    {
+      "CodeID": "code-NC-42f1d983",
+      "NumericValue": -30,
+      "CodeType": "Control",
+      "StringValue": "NC",
+      "ControlCode": "NC",
+      "DisplayText": "NC (not coded)",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-NR-5e3eee23",
+      "NumericValue": -40,
+      "CodeType": "Control",
+      "StringValue": "NR",
+      "ControlCode": "NR",
+      "DisplayText": "NR (not reviewed)",
+      "VisibleInCoda": false
+    },
+    {
+      "NumericValue": -50,
+      "CodeID": "code-NIC-99631cb8",
+      "CodeType": "Control",
+      "StringValue": "NIC",
+      "ControlCode": "NIC",
+      "DisplayText": "NIC (not internally consistent)",
+      "VisibleInCoda": false
+    },
+    {
+      "NumericValue": -90,
+      "CodeID": "code-STOP-08b832a8",
+      "CodeType": "Control",
+      "StringValue": "STOP",
+      "ControlCode": "STOP",
+      "DisplayText": "STOP",
+      "VisibleInCoda": true
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": -100,
+      "CodeID": "code-WS-adb25603b7af",
+      "CodeType": "Control",
+      "StringValue": "WS",
+      "ControlCode": "WS",
+      "DisplayText": "WS (wrong scheme)"
+    }
+  ],
+  "Version": "0.0.0.1"
+}

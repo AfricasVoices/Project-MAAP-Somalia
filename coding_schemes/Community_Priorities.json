@@ -1,0 +1,165 @@
+{
+  "Version": "0.0.0.1",
+  "Name": "Community_Priorities",
+  "SchemeID": "Scheme-8e75a890db95",
+  "Codes": [{
+      "NumericValue": 0,
+      "CodeID": "code-2ad02ea52312",
+      "CodeType": "Normal",
+      "StringValue": "more_aid",
+      "DisplayText": "More aid",
+      "VisibleInCoda": true
+    },
+    {
+      "DisplayText": "Need money",
+      "VisibleInCoda": true,
+      "NumericValue": 1,
+      "CodeID": "code-941ae56d8da8",
+      "CodeType": "Normal",
+      "StringValue": "need_money"
+    },
+    {
+      "DisplayText": "Need food",
+      "VisibleInCoda": true,
+      "NumericValue": 2,
+      "CodeID": "code-442304b716b3",
+      "CodeType": "Normal",
+      "StringValue": "need_food"
+    },
+    {
+      "NumericValue": 3,
+      "CodeID": "code-d3ab9b0a5bfa",
+      "CodeType": "Normal",
+      "StringValue": "business",
+      "DisplayText": "Business",
+      "VisibleInCoda": true
+    },
+    {
+      "NumericValue": 4,
+      "CodeID": "code-1926d320eefc",
+      "CodeType": "Normal",
+      "StringValue": "rent",
+      "DisplayText": "Rent",
+      "VisibleInCoda": true
+    },
+    {
+      "NumericValue": 5,
+      "CodeID": "code-afbfd852377f",
+      "CodeType": "Normal",
+      "StringValue": "clothes",
+      "DisplayText": "Clothes",
+      "VisibleInCoda": true
+    },
+    {
+      "StringValue": "health_services",
+      "DisplayText": "Health services",
+      "VisibleInCoda": true,
+      "NumericValue": 6,
+      "CodeID": "code-5f4366f5814e",
+      "CodeType": "Normal"
+    },
+    {
+      "NumericValue": 7,
+      "CodeID": "code-4e83fd62f399",
+      "CodeType": "Normal",
+      "StringValue": "education",
+      "DisplayText": "Education",
+      "VisibleInCoda": true
+    },
+    {
+      "NumericValue": 8,
+      "CodeID": "code-badd155c17c6",
+      "CodeType": "Normal",
+      "StringValue": "water",
+      "DisplayText": "Water",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-4ea20494d5f6",
+      "NumericValue": 9,
+      "CodeType": "Normal",
+      "StringValue": "continuation_of_cash_transfer",
+      "DisplayText": "Continuation of cash transfer",
+      "VisibleInCoda": true
+    },
+    {
+      "StringValue": "peace",
+      "DisplayText": "Peace",
+      "VisibleInCoda": true,
+      "NumericValue": 10,
+      "CodeID": "code-e7b6804d9d88",
+      "CodeType": "Normal"
+    },
+    {
+      "NumericValue": 11,
+      "CodeID": "code-6ac2978c1b63",
+      "CodeType": "Normal",
+      "StringValue": "employment",
+      "DisplayText": "Employment",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeType": "Control",
+      "StringValue": "NA",
+      "ControlCode": "NA",
+      "DisplayText": "NA (missing)",
+      "VisibleInCoda": false,
+      "NumericValue": -10,
+      "CodeID": "code-NA-f93d3eb7"
+    },
+    {
+      "DisplayText": "NS (skip)",
+      "VisibleInCoda": false,
+      "NumericValue": -20,
+      "CodeID": "code-NS-2c11b7c9",
+      "CodeType": "Control",
+      "StringValue": "NS",
+      "ControlCode": "NS"
+    },
+    {
+      "VisibleInCoda": true,
+      "NumericValue": -30,
+      "CodeID": "code-NC-42f1d983",
+      "CodeType": "Control",
+      "StringValue": "NC",
+      "ControlCode": "NC",
+      "DisplayText": "NC (not coded)"
+    },
+    {
+      "DisplayText": "NR (not reviewed)",
+      "VisibleInCoda": false,
+      "NumericValue": -40,
+      "CodeID": "code-NR-5e3eee23",
+      "CodeType": "Control",
+      "StringValue": "NR",
+      "ControlCode": "NR"
+    },
+    {
+      "NumericValue": -50,
+      "CodeID": "code-NIC-99631cb8",
+      "CodeType": "Control",
+      "StringValue": "NIC",
+      "ControlCode": "NIC",
+      "DisplayText": "NIC (not internally consistent)",
+      "VisibleInCoda": false
+    },
+    {
+      "NumericValue": -90,
+      "CodeID": "code-STOP-08b832a8",
+      "CodeType": "Control",
+      "StringValue": "STOP",
+      "ControlCode": "STOP",
+      "DisplayText": "STOP",
+      "VisibleInCoda": true
+    },
+    {
+      "NumericValue": -100,
+      "CodeID": "code-WS-adb25603b7af",
+      "CodeType": "Control",
+      "StringValue": "WS",
+      "ControlCode": "WS",
+      "DisplayText": "WS (wrong scheme)",
+      "VisibleInCoda": true
+    }
+  ]
+}
