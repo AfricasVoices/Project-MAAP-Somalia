@@ -16,10 +16,10 @@ Development requires the following additional tools:
 ## Usage
 Running the pipeline requires (0) creating a phone number <-> UUID table to support de-identification of respondents, (1) fetching the PDM survey and demographics from Rapid Pro, (2) fetching the contact data from Rapid Pro (3) merging the post distribution monitoring data and the demographics, (4) merging the outside data(SCOPE) to the rapidpro data, (5) creating files for ICR, (6) creating CODA files (7) merging the coded CODA data with the rest of the data, and (8) creating the analysis files.
 
-To simplify the configuration and execution of these stages, this project includes a `run_scripts` directory, which contains shell scripts for driving each of the stages. More detailed descriptions of the functions of each of those stages, and instructions for using the run scripts, are provided below.
+To simplify the configuration and execution of these stages, this project includes a `scripts` directory, which contains shell scripts for driving each of the stages. More detailed descriptions of the functions of each of those stages, and instructions for using the run scripts, are provided below.
 
 ### 0. Phone Number <-> UUID Table
-First, create an empty phone number <-> UUID table by running the following command in the `run_scripts` directory:
+First, create an empty phone number <-> UUID table by running the following command in the `scripts` directory:
 ```
 $ ./1_create_uuid_table.sh <data-root> 
 ```
@@ -27,7 +27,7 @@ $ ./1_create_uuid_table.sh <data-root>
 where - `data-root` is an absolute path to the directory in which all pipeline data should be stored. The UUID table will be saved to a file in the directory <data-root>/UUIDs.
 
 ### 1. Fetch PDM survey and demographics
-Next, fetch PDM and demographics required by the pipeline from Rapid Pro by running the following command in the `run_scripts` directory:
+Next, fetch PDM and demographics required by the pipeline from Rapid Pro by running the following command in the `scripts` directory:
 ```
 $ ./01_fetch_messages.sh <user> <rapid-pro-root> <rapid-pro-server> 
 <rapid-pro-token> <data-root> <test-contacts-path>
@@ -41,7 +41,7 @@ Where:
 - `data-root` is an absolute path to the directory in which all pipeline data should be stored. Raw data will be saved to TracedData JSON files in <data-root>/01 Raw Messages
 
 ### 2.Fetch Contact Data
-This fetches saved contact data from Rapid Pro by running the following command in the `run_scripts` directory:
+This fetches saved contact data from Rapid Pro by running the following command in the `scripts` directory:
 ```
 ./02_fetch_contacts.sh <user> <rapid-pro-root> <rapid-pro-server> <rapid-pro-token> <data-root> <test-contacts-path>
 ```
@@ -55,7 +55,7 @@ Where:
 - `test-contacts-path` is the absolute path list of contacts that were used to test the pipeline.
 
 ### 3. Merge PDM and Demographics
-Merges the pdm and demographics into a single TracedData JSON file by running the following command in the `run_scripts` directory:
+Merges the pdm and demographics into a single TracedData JSON file by running the following command in the `scripts` directory:
 ```
 ./03_maap_pdm_demogs.sh <user> <data-root>
 ```
@@ -65,7 +65,7 @@ Where:
 - `data-root` is an absolute path to the directory in which all pipeline data should be stored. The resulting data will be saved to a TracedData JSON file in <data-root>/03 PDM Demogs Merged/
 
 ### 4. Merge SCOPE data
-Uses the *TracedData JSON file from (3)* merges SCOPE data into it by running the following command in the `run_scripts` directory: 
+Uses the *TracedData JSON file from (3)* merges SCOPE data into it by running the following command in the `scripts` directory: 
 ```
 ./04_merge_scope.sh <user> <data-root> <scope-path>
 ```
@@ -76,7 +76,7 @@ Where:
 - scope-path is path to the SCOPE data csv
 
 ### 5. Create ICR files
-Uses the *TracedData JSON file from (4)* to create files for inter-coder reliability in by running the following command in the `run_scripts` directory: 
+Uses the *TracedData JSON file from (4)* to create files for inter-coder reliability in by running the following command in the `scripts` directory: 
 ```
 ./05_create_icr_files.sh <user> <data-root>
 ```
@@ -86,7 +86,7 @@ Where:
 - `data-root` is an absolute path to the directory in which all pipeline data should be stored. The resulting data will be saved to a TracedData JSON file in `<data-root>/05 ICR/`
 
 ### 6 Create CODA files
-Creates uncoded CODA files to be coded by running the following command in the `run_scripts` directory:
+Creates uncoded CODA files to be coded by running the following command in the `scripts` directory:
 ```
 ./06_create_coda_files.sh <user> <data-root>
 ```
@@ -96,7 +96,7 @@ Where:
 - `data-root` is an absolute path to the directory in which all pipeline data should be stored. The TracedData JSON file will be saved in `<data-root>/06 CODA with Messages/`, the CODA file will be saved in `<data-root>/06 Uncoded CODA files/`
 
 ### 7 Merge CODA file
-Uses *the the TracedData JSON from (6)* merges coded CODA files into it by running the following command in the `run_scripts` directory:
+Uses *the the TracedData JSON from (6)* merges coded CODA files into it by running the following command in the `scripts` directory:
 ```
 ./07_merge_coda_files.sh <user> <data-root>
 ```
@@ -115,7 +115,7 @@ Note that the coded coda files need to be saved in `<data-root>/coded_coda_files
 - inclusion_coded.json
 
 ### 8 Create analysis file
-Creates messages/individuals CSVs for final analysis, by running the following command in the `run_scripts` directory:
+Creates messages/individuals CSVs for final analysis, by running the following command in the `scripts` directory:
 ```
 ./08_create_analysis_files.sh <user> <data-root>
 ```
