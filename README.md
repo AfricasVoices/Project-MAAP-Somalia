@@ -21,10 +21,10 @@ To simplify the configuration and execution of these stages, this project includ
 ### 0. Phone Number <-> UUID Table
 First, create an empty phone number <-> UUID table by running the following command in the `scripts` directory:
 ```
-$ ./1_create_uuid_table.sh <data-root> 
+$ ./00_create_uuid_table.sh <data-root> 
 ```
 
-where - `data-root` is an absolute path to the directory in which all pipeline data should be stored. The UUID table will be saved to a file in the directory <data-root>/UUIDs.
+where - `data-root` is an absolute path to the directory in which all pipeline data should be stored. The UUID table will be saved to a file in the directory <data-root>/00 UUIDs.
 
 ### 1. Fetch PDM survey and demographics
 Next, fetch PDM and demographics required by the pipeline from Rapid Pro by running the following command in the `scripts` directory:
