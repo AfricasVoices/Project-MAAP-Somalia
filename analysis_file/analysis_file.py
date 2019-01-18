@@ -5,7 +5,6 @@ import time
 from core_data_modules.cleaners import Codes
 from core_data_modules.traced_data import Metadata
 from core_data_modules.traced_data.io import TracedDataJsonIO, TracedDataCSVIO
-from core_data_modules.util.consent_utils import ConsentUtils
 from core_data_modules.traced_data.util import FoldTracedData
 
 from lib.analysis_keys import AnalysisKeys

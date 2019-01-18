@@ -1,8 +1,7 @@
 {
     "_meta": {
         "hash": {
-
-            "sha256": "400cf9681818a7e9cdfd6f3d8347567ad22fbd0fda4996830070bfa5c6de8494"
+            "sha256": "51bc5b54bf4d23283c23697eee94b388cef2fedd708c025d283dd1864003be3d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -20,8 +19,7 @@
         "coredatamodules": {
             "editable": true,
             "git": "https://www.github.com/AfricasVoices/CoreDataModules",
-
-            "ref": "7ffa6ef7360578880a1187e609e54d867309c26f"
+            "ref": "130ab935879e87e094669ed0844c5c566cb4eed9"
         },
         "deprecation": {
             "hashes": [
@@ -47,10 +45,10 @@
         },
         "pyparsing": {
             "hashes": [
-                "sha256:40856e74d4987de5d01761a22d1621ae1c7f8774585acae358aa5c5936c6c90b",
-                "sha256:f353aab21fd474459d97b709e527b5571314ee5f067441dc9f88e33eecd96592"
+                "sha256:66c9268862641abcac4a96ba74506e594c884e3f57690a696d21ad8210ed667a",
+                "sha256:f6c5ef0d7480ad048c054c37632c67fca55299990fff127850181659eea33fc3"
             ],
-            "version": "==2.3.0"
+            "version": "==2.3.1"
         },
         "python-dateutil": {
             "hashes": [
@@ -59,7 +57,6 @@
             ],
             "version": "==2.7.5"
         },
-
         "pytz": {
             "hashes": [
                 "sha256:32b0891edff07e28efe91284ed9c31e123d84bea3fd98e1f72be2508f43ef8d9",

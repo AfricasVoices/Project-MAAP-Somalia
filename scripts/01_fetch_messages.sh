@@ -3,7 +3,7 @@
 set -e
 
 if [ $# -ne 6 ]; then
-    echo "Usage: sh 01_fetch_messages.sh <user> <rapid-pro-root> <rapid-pro-server> <rapid-pro-token> <data-root> <test-contacts-path>"
+    echo "Usage: ./01_fetch_messages.sh <user> <rapid-pro-root> <rapid-pro-server> <rapid-pro-token> <data-root> <test-contacts-path>"
     echo "Downloads radio show answers from each show"
     exit
 fi

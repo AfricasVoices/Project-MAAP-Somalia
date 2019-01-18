@@ -43,7 +43,7 @@ docker start -a -i "$container"
 
 # Copy the output data back out of the container
 mkdir -p "$(dirname "$OUTPUT_JSON")"
-docker cp "$container:/data/output_json.json" "$OUTPUT_CODA"
+docker cp "$container:/data/output_json.json" "$OUTPUT_JSON"
 
 mkdir -p "$(dirname "$OUTPUT_CODA")"
 docker cp "$container:/data/output_coda.json" "$OUTPUT_CODA"

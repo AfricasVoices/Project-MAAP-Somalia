@@ -1,0 +1,165 @@
+{
+  "Version": "0.0.0.1",
+  "Name": "Needs_Met_Yesno",
+  "SchemeID": "Scheme-50759ccbd6c4",
+  "Codes": [{
+      "DisplayText": "Education",
+      "VisibleInCoda": true,
+      "NumericValue": 0,
+      "CodeID": "code-ceafac1f0bb3",
+      "CodeType": "Normal",
+      "StringValue": "education"
+    },
+    {
+      "DisplayText": "Food",
+      "VisibleInCoda": true,
+      "NumericValue": 1,
+      "CodeID": "code-fd69308ec5d8",
+      "CodeType": "Normal",
+      "StringValue": "food"
+    },
+    {
+      "NumericValue": 2,
+      "CodeID": "code-909afa9f9b64",
+      "CodeType": "Normal",
+      "StringValue": "childrens_needs",
+      "DisplayText": "Children's needs",
+      "VisibleInCoda": true
+    },
+    {
+      "DisplayText": "Family needs",
+      "VisibleInCoda": true,
+      "NumericValue": 3,
+      "CodeID": "code-1f7b19de66bb",
+      "CodeType": "Normal",
+      "StringValue": "family_needs"
+    },
+    {
+      "DisplayText": "Health",
+      "VisibleInCoda": true,
+      "NumericValue": 4,
+      "CodeID": "code-bdc2ecc6e73b",
+      "CodeType": "Normal",
+      "StringValue": "health"
+    },
+    {
+      "StringValue": "self_employment",
+      "DisplayText": "Self Employment",
+      "VisibleInCoda": true,
+      "NumericValue": 5,
+      "CodeID": "code-6f48b19f6869",
+      "CodeType": "Normal"
+    },
+    {
+      "DisplayText": "Amount not sufficient",
+      "VisibleInCoda": true,
+      "NumericValue": 6,
+      "CodeID": "code-57c1877ddbb1",
+      "CodeType": "Normal",
+      "StringValue": "amount_not_sufficient"
+    },
+    {
+      "StringValue": "closure_of_roads",
+      "DisplayText": "Closure of roads",
+      "VisibleInCoda": true,
+      "NumericValue": 7,
+      "CodeID": "code-d91c93baa9b5",
+      "CodeType": "Normal"
+    },
+    {
+      "DisplayText": "Drought",
+      "VisibleInCoda": true,
+      "NumericValue": 8,
+      "CodeID": "code-98de45fc1271",
+      "CodeType": "Normal",
+      "StringValue": "drought"
+    },
+    {
+      "NumericValue": 9,
+      "CodeID": "code-360f4f7284a9",
+      "CodeType": "Normal",
+      "StringValue": "aid_not_received",
+      "DisplayText": "Aid not received",
+      "VisibleInCoda": true
+    },
+    {
+      "StringValue": "access_to_aid",
+      "DisplayText": "Access to aid",
+      "VisibleInCoda": true,
+      "NumericValue": 10,
+      "CodeID": "code-f196d8250130",
+      "CodeType": "Normal"
+    },
+    {
+      "NumericValue": 11,
+      "CodeID": "code-dff5cc037777",
+      "CodeType": "Normal",
+      "StringValue": "need_investment",
+      "DisplayText": "Need Investment",
+      "VisibleInCoda": true
+    },
+    {
+      "DisplayText": "NA (missing)",
+      "VisibleInCoda": false,
+      "NumericValue": -10,
+      "CodeID": "code-NA-f93d3eb7",
+      "CodeType": "Control",
+      "StringValue": "NA",
+      "ControlCode": "NA"
+    },
+    {
+      "NumericValue": -20,
+      "CodeID": "code-NS-2c11b7c9",
+      "CodeType": "Control",
+      "StringValue": "NS",
+      "ControlCode": "NS",
+      "DisplayText": "NS (skip)",
+      "VisibleInCoda": false
+    },
+    {
+      "ControlCode": "NC",
+      "DisplayText": "NC (not coded)",
+      "VisibleInCoda": true,
+      "NumericValue": -30,
+      "CodeID": "code-NC-42f1d983",
+      "CodeType": "Control",
+      "StringValue": "NC"
+    },
+    {
+      "DisplayText": "NR (not reviewed)",
+      "VisibleInCoda": false,
+      "NumericValue": -40,
+      "CodeID": "code-NR-5e3eee23",
+      "CodeType": "Control",
+      "StringValue": "NR",
+      "ControlCode": "NR"
+    },
+    {
+      "VisibleInCoda": false,
+      "NumericValue": -50,
+      "CodeID": "code-NIC-99631cb8",
+      "CodeType": "Control",
+      "StringValue": "NIC",
+      "ControlCode": "NIC",
+      "DisplayText": "NIC (not internally consistent)"
+    },
+    {
+      "ControlCode": "STOP",
+      "DisplayText": "STOP",
+      "VisibleInCoda": true,
+      "NumericValue": -90,
+      "CodeID": "code-STOP-08b832a8",
+      "CodeType": "Control",
+      "StringValue": "STOP"
+    },
+    {
+      "DisplayText": "WS (wrong scheme)",
+      "VisibleInCoda": true,
+      "NumericValue": -100,
+      "CodeID": "code-WS-adb25603b7af",
+      "CodeType": "Control",
+      "StringValue": "WS",
+      "ControlCode": "WS"
+    }
+  ]
+}
