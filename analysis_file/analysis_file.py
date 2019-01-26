@@ -89,7 +89,6 @@ if __name__ == '__main__':
         'community_priorities': 'q3_',
         'inclusion_reason': 'q4_',
     }
-
     # Get the matrix keys
     matrix_keys = AnalysisKeys.set_matrix_keys(user, list_td, keys_to_matrix_convert)
 
@@ -115,6 +114,9 @@ if __name__ == '__main__':
     export_keys.extend(survey_keys)
     export_keys.extend(matrix_keys)
     export_keys.extend(scope_keys)
+    
+    #arrange export_keys
+    export_keys = AnalysisKeys.arrange_keys(export_keys)
 
     # Fold data to have one respondent per row
     to_be_folded = []
