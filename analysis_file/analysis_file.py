@@ -47,7 +47,7 @@ if __name__ == '__main__':
     demog_keys = [
         'gender',
         'gender_raw',
-        'Age',
+        'age',
         'age_raw',
         'clan_identity',
         'clan_identity_raw']

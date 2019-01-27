@@ -92,14 +92,14 @@ class AnalysisKeys(object):
             'cash_modality_raw', 'cash_modality_yesno', 'q2_access_and_use_mobile_phones', 'q2_delays_in_the_program',
             'q2_distance', 'q2_easy_access', 'q2_inclusive_access', 'q2_long_queues', 'q2_other',
             'q2_prefer_current_modality', 'q2_prevents_corruption', 'q2_safety', 'q2_security_concerns', 'q2_NA',
-            'q2_NR', 'q2_shelter',
+            'q2_NR', 'q2_WS', 'q2_shelter',
             
             'community_priorities_raw', 'q3_business', 'q3_clothes', 'q3_continuation_of_cash_transfer', 'q3_education',
             'q3_employment', 'q3_health_services', 'q3_more_aid', 'q3_need_food', 'q3_need_money', 'q3_peace', 'q3_rent',
-            'q3_water', 'q3_NA', 'q3_NC', 'q3_NR',
+            'q3_water', 'q3_NA', 'q3_WS', 'q3_NC', 'q3_NR',
             
             'inclusion_raw', 'inclusion_yesno', 'q4_lack_of_information', 'q4_not_received_cash', 
-            'q4_opportunity_to_give_opinions', 'q4_NA', 'q4_NR',
+            'q4_opportunity_to_give_opinions', 'q4_NA', 'q4_NR', 'q4_WS',
         ]
         # Check that we're not missing any keys in how_to_arrange
         set_difference = set(export_list) - set(how_to_arrange)
