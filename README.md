@@ -57,7 +57,7 @@ Where:
 ### 3. Merge PDM and Demographics
 Merges the pdm and demographics into a single TracedData JSON file by running the following command in the `scripts` directory:
 ```
-./03_maap_pdm_demogs.sh <user> <data-root>
+./03_merge_pdm_demogs.sh <user> <data-root>
 ```
 
 Where:
