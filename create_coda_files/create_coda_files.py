@@ -21,7 +21,7 @@ def open_scheme(filepath):
 
 #Autocleaners that exist for this project
 AUTO_CLEANERS = {'gender':somali.DemographicCleaner.clean_gender,
-                'Age':lambda x: str(somali.DemographicCleaner.clean_age(x)),
+                'age':lambda x: str(somali.DemographicCleaner.clean_age(x)),
                 'yes_no':somali.DemographicCleaner.clean_yes_no,
                 }
 

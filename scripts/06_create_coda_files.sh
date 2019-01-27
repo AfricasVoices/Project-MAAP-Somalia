@@ -33,7 +33,7 @@ echo "Creating CODA files for Age"
 echo "Creating CODA files for Clan"
 ./docker-run.sh "$USER" "$DATA_ROOT/06 CODA with Messages/coda_with_messages.json" "emergency_maap_new_demogs" "Clan" \
     "$DATA_ROOT/06 CODA with Messages/coda_with_messages.json" "$DATA_ROOT/06 Uncoded CODA files/clan_uncoded.json" \
-    "../coding_schemes/Age.json" "False" "False" "None"
+    "../coding_schemes/Clan.json" "False" "False" "None"
 
 echo "Creating CODA files for Needs Met"
 ./docker-run.sh "$USER" "$DATA_ROOT/06 CODA with Messages/coda_with_messages.json" "emergency_maap_new_pdm" "Needs_Met_Yesno" \

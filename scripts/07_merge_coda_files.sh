@@ -17,19 +17,18 @@ cd "../merge_coda_files"
 
 mkdir -p "$DATA_ROOT/07 Coded CODA with Messages"
 
-
-
 echo "Merging Gender Coded"
 ./docker-run.sh "$USER" "$DATA_ROOT/06 CODA with Messages/coda_with_messages.json" \
     "Gender" "$DATA_ROOT/coded_coda_files/gender_coded.json" \
     "../coding_schemes/Gender.json" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json" \
     "False" "False"
 
+
 # After the first file is processed the input and output files are the same
 
 echo "Merging Age"
 ./docker-run.sh "$USER" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json" \
-    "Age" "$DATA_ROOT/coded_coda_files/gender_coded.json" \
+    "Age" "$DATA_ROOT/coded_coda_files/age_coded.json" \
     "../coding_schemes/Age.json" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json" \
     "False" "False"
 
