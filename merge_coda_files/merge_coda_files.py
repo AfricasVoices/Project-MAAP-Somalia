@@ -12,12 +12,19 @@ from core_data_modules.traced_data.io import TracedDataJsonIO, TracedDataCoda2IO
 from core_data_modules.util import IOUtils
 from core_data_modules.data_models import Scheme
 
+def log(str):
+    print (time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()) + ": " + str, flush=True)
+
 # opens a coding scheme
 def open_scheme(filepath):
     with open(filepath, "r") as f:
         firebase_map = json.load(f)
         return Scheme.from_firebase_map(firebase_map)
 
+
+
+# Do not reuse in other pipelines
+# This function silently masks user error (LC)
 def coda_id_to_strings(list_td, old_key, key_map, code_scheme):
     '''
     Converts CODA code IDs to strings
@@ -125,16 +132,28 @@ if __name__ == '__main__':
     elif args.has_yes_no == 'False':
         has_yes_no = False
 
+    
+    log ("Beginning merge: {}".format(variable_name))
+    log ("Loading {}".format(json_input_path))
+
     # Load data from JSON file
     with open(json_input_path, 'r') as f:
         list_td = TracedDataJsonIO.import_json_to_traced_data_iterable(f)
+
+    log ("Tracedata load complete")
     
+    log ("Loading {}".format(coding_scheme_path))
     # Load the coding scheme
     code_scheme = open_scheme(coding_scheme_path)
+    log ("Code scheme load complete")
 
     id_field = '{}_id'.format(variable_name.lower())
     coded_key = '{}_coded'.format(variable_name.lower())
 
+    log ("id_field: {}".format(id_field))
+    log ("coded_key: {}".format(coded_key))
+
+    log ("has_yes_no: {}".format(has_yes_no))
     if has_yes_no:
         yes_no_key = '{}_yesno'.format(variable_name.lower())
         yes_no_scheme = open_scheme('Yes_No.json')

@@ -47,7 +47,7 @@ if __name__ == '__main__':
     demog_keys = [
         'gender',
         'gender_raw',
-        'age',
+        'Age',
         'age_raw',
         'clan_identity',
         'clan_identity_raw']
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     scope_keys = [
         'scope_district',
         'household_size']
-
+    
     key_map = {
         'UID': 'avf_phone_id',
         'needs_met_raw': 'Needs_Met_Yesno (Text) - emergency_maap_new_pdm',
