@@ -90,14 +90,6 @@
       "CodeType": "Normal"
     },
     {
-      "DisplayText": "Shelter",
-      "VisibleInCoda": true,
-      "NumericValue": 11,
-      "CodeID": "code-beb71ed70ac8",
-      "CodeType": "Normal",
-      "StringValue": "shelter"
-    },
-    {
       "StringValue": "NA",
       "ControlCode": "NA",
       "DisplayText": "NA (missing)",

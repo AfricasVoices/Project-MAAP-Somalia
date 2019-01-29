@@ -121,6 +121,14 @@
       "VisibleInCoda": true
     },
     {
+      "NumericValue": 15,
+      "CodeID": "code-47bb9d1ef876",
+      "CodeType": "Normal",
+      "StringValue": "Other",
+      "DisplayText": "Other",
+      "VisibleInCoda": true
+    },
+    {
       "DisplayText": "NA (missing)",
       "VisibleInCoda": false,
       "NumericValue": -10,
