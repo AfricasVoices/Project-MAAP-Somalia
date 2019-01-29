@@ -103,7 +103,7 @@
       "NumericValue": 12,
       "CodeID": "code-cb776c99495a",
       "CodeType": "Normal",
-      "StringValue": "Rent",
+      "StringValue": "rent",
       "DisplayText": "Rent"
     },
     {
@@ -111,7 +111,7 @@
       "NumericValue": 13,
       "CodeID": "code-0bf74d7f6cbf",
       "CodeType": "Normal",
-      "StringValue": "Clothes",
+      "StringValue": "clothes",
       "DisplayText": "Clothes"
     },
     {
