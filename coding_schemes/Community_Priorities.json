@@ -99,6 +99,14 @@
       "VisibleInCoda": true
     },
     {
+      "DisplayText": "Shelter",
+      "VisibleInCoda": true,
+      "NumericValue": 12,
+      "CodeID": "code-beb71ed90fg8",
+      "CodeType": "Normal",
+      "StringValue": "shelter"
+    },
+    {
       "CodeType": "Control",
       "StringValue": "NA",
       "ControlCode": "NA",
