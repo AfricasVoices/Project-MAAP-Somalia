@@ -12,8 +12,7 @@ fi
 USER=$1
 DATA_ROOT=$2
 
-
-cd "../merge_coda_files"
+cd "merge_coda_files"
 
 mkdir -p "$DATA_ROOT/07 Coded CODA with Messages"
 

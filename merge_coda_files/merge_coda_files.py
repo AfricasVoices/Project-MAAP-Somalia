@@ -22,7 +22,6 @@ def open_scheme(filepath):
         return Scheme.from_firebase_map(firebase_map)
 
 
-
 # Do not reuse in other pipelines
 # This function silently masks user error (LC)
 def coda_id_to_strings(list_td, old_key, key_map, code_scheme):

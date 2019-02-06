@@ -17,7 +17,7 @@ mkdir -p "$DATA_ROOT/03 PDM Demogs Merged"
 INPUT_FOLDER="$DATA_ROOT/01 Raw Messages"
 OUTPUT_FOLDER="$DATA_ROOT/03 PDM Demogs Merged"
 
-cd ../merge_pdm_demog
+cd "merge_pdm_demog"
 
 PDM="emergency_maap_new_pdm"
 DEMOGS="emergency_maap_new_demogs"

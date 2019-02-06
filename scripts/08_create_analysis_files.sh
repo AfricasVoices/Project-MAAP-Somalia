@@ -13,11 +13,9 @@ USER=$1
 DATA_ROOT=$2
 
 
-cd "../analysis_file"
+cd "analysis_file"
 
 mkdir -p "$DATA_ROOT/08 Analysis Files"
-
-
 
 echo "Creating analysis files"
 ./docker-run.sh "$USER" "$DATA_ROOT/07 Coded CODA with Messages/coded_coda_with_messages.json" \

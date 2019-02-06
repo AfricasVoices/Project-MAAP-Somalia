@@ -11,7 +11,7 @@ fi
 USER=$1
 DATA_ROOT=$2
 
-cd "../create_coda_files"
+cd "create_coda_files"
 
 mkdir -p "$DATA_ROOT/06 CODA with Messages"
 mkdir -p "$DATA_ROOT/06 Uncoded CODA files"

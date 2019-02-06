@@ -32,3 +32,4 @@ if __name__ == "__main__":
     with open(traced_json_output_path, "w") as f:
         TracedDataJsonIO.export_traced_data_iterable_to_json(pdm_td, f,
                                                              pretty_print=True)
+                                                             
